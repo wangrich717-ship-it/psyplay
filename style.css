@@ -183,11 +183,11 @@ body {
 
 /* ── Intro page ─────────────────────────────────────────────────────────────── */
 #page-intro {
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
 }
+#page-intro.active { display: flex; }
 
 .intro-wrap {
   max-width: 480px;
@@ -610,10 +610,10 @@ input[type="range"]::-moz-range-thumb {
 
 /* ── Loading page ───────────────────────────────────────────────────────────── */
 #page-loading {
-  display: flex;
   align-items: center;
   justify-content: center;
 }
+#page-loading.active { display: flex; }
 
 .loading-wrap {
   text-align: center;

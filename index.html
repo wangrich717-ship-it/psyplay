@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>玩心理 · PsyPlay</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- SVG icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <defs>
+      <!-- brain / logo -->
+      <symbol id="icon-brain" viewBox="0 0 24 24">
+        <path d="M9.5 2a4.5 4.5 0 0 1 4.45 3.97A4.5 4.5 0 0 1 17 10c0 .35-.04.7-.1 1.03A4 4 0 0 1 18 14.5a4 4 0 0 1-3 3.87V20h-2v-2H9v2H7v-1.63A4 4 0 0 1 4 14.5a4 4 0 0 1 1.1-2.77A4.5 4.5 0 0 1 5 10a4.5 4.5 0 0 1 4.5-8zm0 2A2.5 2.5 0 0 0 7 6.5c0 .48.14.93.38 1.31A4.5 4.5 0 0 1 9.5 7h.5v2H9a2.5 2.5 0 0 0 0 5h6a2 2 0 0 0 0-4h-.5A4.5 4.5 0 0 1 12 8V7h.5A2.5 2.5 0 0 0 12 4a2.5 2.5 0 0 0-2.5-2z"/>
+      </symbol>
+      <!-- arrow right -->
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+      </symbol>
+      <!-- arrow left / back -->
+      <symbol id="icon-back" viewBox="0 0 24 24">
+        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/>
+      </symbol>
+      <!-- play -->
+      <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </symbol>
+      <!-- share / copy -->
+      <symbol id="icon-share" viewBox="0 0 24 24">
+        <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+      </symbol>
+      <!-- reload -->
+      <symbol id="icon-reload" viewBox="0 0 24 24">
+        <path d="M17.65 6.35A7.96 7.96 0 0 0 12 4C7.58 4 4 7.58 4 12s3.58 8 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+      </symbol>
+      <!-- home -->
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </symbol>
+      <!-- clock -->
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+      </symbol>
+      <!-- grid/list -->
+      <symbol id="icon-list" viewBox="0 0 24 24">
+        <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+      </symbol>
+      <!-- sound wave -->
+      <symbol id="icon-sound" viewBox="0 0 24 24">
+        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+      </symbol>
+      <!-- chart -->
+      <symbol id="icon-chart" viewBox="0 0 24 24">
+        <path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z"/>
+      </symbol>
+    </defs>
+  </svg>
+</head>
+
+<body>
+
+<!-- ══ HOME PAGE ══════════════════════════════════════════════════════════════ -->
+<section id="page-home" class="page active">
+  <header class="site-header">
+    <div class="site-logo">
+      <div class="logo-mark">
+        <svg><use href="#icon-brain"/></svg>
+      </div>
+      <span class="logo-text">玩心理</span>
+    </div>
+    <p class="site-slogan">认识你自己的那个你</p>
+  </header>
+
+  <div class="quiz-grid" id="quiz-grid">
+    <!-- Cards injected by quiz.js -->
+  </div>
+
+  <footer class="site-footer">
+    <p>纯前端 · 测完即走 · 不存储任何数据</p>
+  </footer>
+</section>
+
+<!-- ══ INTRO PAGE ═════════════════════════════════════════════════════════════ -->
+<section id="page-intro" class="page">
+  <div class="intro-wrap">
+    <div class="intro-icon-box" id="intro-icon-box">
+      <svg><use href="#icon-brain"/></svg>
+    </div>
+    <h1 class="intro-title" id="intro-title"></h1>
+    <p class="intro-subtitle" id="intro-tagline"></p>
+    <div class="intro-meta">
+      <span class="meta-chip" id="intro-type-chip">
+        <svg><use href="#icon-list"/></svg>
+        <span id="intro-type-text"></span>
+      </span>
+      <span class="meta-chip">
+        <svg><use href="#icon-clock"/></svg>
+        <span id="intro-duration-text"></span>
+      </span>
+    </div>
+    <button class="btn-primary" id="btn-start-quiz">
+      开始测试
+      <svg><use href="#icon-arrow-right"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ══ QUIZ PAGE ══════════════════════════════════════════════════════════════ -->
+<section id="page-quiz" class="page">
+  <div class="quiz-topbar">
+    <button class="btn-icon" id="btn-quiz-back" title="返回">
+      <svg><use href="#icon-back"/></svg>
+    </button>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <span class="progress-label" id="progress-label">1/6</span>
+  </div>
+
+  <div class="question-wrap">
+    <!-- Timer bar (Test 8 only) -->
+    <div id="timer-wrap" class="timer-wrap" style="display:none">
+      <div class="timer-label">本能作答 — 剩余时间</div>
+      <div class="timer-track">
+        <div class="timer-fill" id="timer-fill"></div>
+      </div>
+    </div>
+
+    <!-- Audio panel (Tests 3 & 9) -->
+    <div id="audio-panel" class="audio-panel" style="display:none">
+      <div class="audio-sounds" id="audio-sounds-container"></div>
+    </div>
+
+    <p class="question-text" id="question-text"></p>
+    <div id="options-container"></div>
+
+    <!-- Slider submit (Test 7) -->
+    <div class="btn-submit-wrap" id="slider-submit-wrap" style="display:none">
+      <button class="btn-primary" id="btn-slider-submit">
+        查看结果
+        <svg><use href="#icon-arrow-right"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOADING PAGE ═══════════════════════════════════════════════════════════ -->
+<section id="page-loading" class="page">
+  <div class="loading-wrap">
+    <div class="loading-ring"></div>
+    <p class="loading-msg" id="loading-msg">分析中...</p>
+  </div>
+</section>
+
+<!-- ══ RESULT PAGE ════════════════════════════════════════════════════════════ -->
+<section id="page-result" class="page">
+  <div class="result-header">
+    <div class="result-icon-box" id="result-icon-box">
+      <svg><use href="#icon-brain"/></svg>
+    </div>
+    <p class="result-label-small">你的类型是</p>
+    <h2 class="result-title" id="result-title"></h2>
+  </div>
+
+  <div class="result-divider"></div>
+
+  <div class="result-body" id="result-body">
+    <!-- Paragraphs injected -->
+  </div>
+
+  <!-- Canvas (Tests 7 & 10) -->
+  <canvas id="result-canvas" width="360" height="320"></canvas>
+
+  <!-- Dimension tips (Test 7) -->
+  <div class="dimension-tips" id="dimension-tips" style="display:none"></div>
+
+  <div class="result-quote-box" id="result-quote"></div>
+
+  <div class="result-actions">
+    <button class="btn-secondary" id="btn-share">
+      <svg><use href="#icon-share"/></svg>
+      复制结果
+    </button>
+    <button class="btn-secondary" id="btn-retake">
+      <svg><use href="#icon-reload"/></svg>
+      重新测试
+    </button>
+    <button class="btn-primary" id="btn-home">
+      <svg><use href="#icon-home"/></svg>
+      返回首页
+    </button>
+  </div>
+</section>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">已复制到剪贴板</div>
+
+<script src="audio.js"></script>
+<script src="canvas.js"></script>
+<script src="quiz.js"></script>
+</body>
+</html>

@@ -11,7 +11,9 @@ const CanvasManager = (() => {
     const canvas = document.getElementById(canvasId);
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const W = canvas.width, H = canvas.height;
+    const dpr = window.devicePixelRatio || 1;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const W = canvas.width / dpr, H = canvas.height / dpr;
     const cx = W / 2, cy = H / 2;
     const R = Math.min(W, H) / 2 - 52;
     const n = scores.length;
@@ -120,7 +122,9 @@ const CanvasManager = (() => {
     const canvas = document.getElementById(canvasId);
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const W = canvas.width, H = canvas.height;
+    const dpr = window.devicePixelRatio || 1;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const W = canvas.width / dpr, H = canvas.height / dpr;
     const cx = W / 2, cy = H / 2;
 
     ctx.clearRect(0, 0, W, H);

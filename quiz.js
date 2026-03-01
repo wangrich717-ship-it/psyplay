@@ -155,31 +155,31 @@ const QUIZZES = [
     results: {
       burning: {
         title: '你的压力是「橘红色烈焰」',
-        accent: '#e8440a',
+        accent: '#e8440a', colorHex: '#E8440A',
         p: ['你在压力下不会熄灭，反而会越燃越旺。问题是，你有时候烧到自己都不知道。', '你是那种把"撑住"当作默认设置的人，把自我消耗当成一种理所当然。', '但火焰需要氧气，你也需要喘息——允许自己偶尔停下来，不是失败，是智慧。'],
         quote: '不是所有的燃烧都值得，也不是所有的熄灭都是失败。'
       },
       cool: {
         title: '你的压力是「深海蓝静默」',
-        accent: '#1a3a6b',
+        accent: '#1a3a6b', colorHex: '#2B4590',
         p: ['表面看起来你总是平静的，但深海里其实一直有暗流。', '你处理压力的方式是"消化"而不是"爆发"——你把它压得很深，直到某天它自己浮上来。', '学会在感受到的时候说出来，比在深海里独自消化要轻松得多。'],
         quote: '最深的水，并不是因为没有波浪，而是波浪在更深的地方。'
       },
       misty: {
         title: '你的压力是「薰衣草灰雾」',
-        accent: '#9b7ec8',
+        accent: '#9b7ec8', colorHex: '#9B7EC8',
         p: ['你的压力是那种说不清楚的钝感——不是剧烈的痛，而是一种持续的、弥漫的疲惫。', '你很难向人解释自己的状态，因为连你自己都描述不清楚。', '尝试给那种"说不清的感觉"起一个名字，命名本身就是一种疏解。'],
         quote: '雾不需要解释自己，它就是它本来的样子。'
       },
       explosive: {
         title: '你的压力是「霓虹混搭冲突色」',
-        accent: '#8b0000',
+        accent: '#8b0000', colorHex: '#C4557C',
         p: ['你的内心正在上演一场色彩大战。你有很多情绪同时在线，有时候自己都不知道哪个是真的。', '这不是坏事——说明你是个感受力极强的人，世界在你眼里从来不是非此即彼的。', '但情绪的堆叠会消耗大量能量，适当地"清场"，允许某种感受暂时退场。'],
         quote: '混乱有时候是改变前的最后一次震动。'
       },
       escape: {
         title: '你的压力是「空白画布白」',
-        accent: '#888888',
+        accent: '#888888', colorHex: '#B8B8B8',
         p: ['你在压力面前的本能是"清空"——什么都不想、什么都不感受。', '这是一种自我保护，是你的神经系统给自己一个缓冲区的方式。', '但长期用空白来对抗压力，容易让你与自己失去联结。试着用一个小小的感受来填一填那块白。'],
         quote: '空白不是终点，它是下一笔之前的留白。'
       },
@@ -320,11 +320,11 @@ const QUIZZES = [
         scores: ['B', 'M', 'B', 'S']
       },
       {
-        text: '这一题，点击播放后几乎没有声音。\n静默本身是一种声音——你感受到了什么？',
-        soundKey: 'silence',
-        soundLabel: '静默体验',
-        options: ['挺舒服的，难得的安静', '有点难受，不自在', '好奇地等待，像在预期什么', '感到一种空洞'],
-        scores: ['B', 'S', 'M', 'D']
+        text: '这一题的声音，是一种非常熟悉的节奏。\n听完之后——你感受到了什么？',
+        soundKey: 'heartbeat',
+        soundLabel: '心跳律动',
+        options: ['感到踏实，像在被安抚', '有点紧张，心跳加速', '放松地跟着它呼吸', '觉得它在提醒我什么'],
+        scores: ['B', 'S', 'D', 'M']
       },
     ],
     calculate(answers) {
@@ -761,14 +761,14 @@ const QUIZZES = [
   {
     id: 'q8',
     num: '08',
-    title: '三秒决定——你的本能防御机制',
-    tagline: '不要想，三秒内点击——你的本能是最诚实的',
+    title: '五秒决定——你的本能防御机制',
+    tagline: '不要想，五秒内点击——你的本能是最诚实的',
     type: 'timed',
     typeLabel: '限时选择',
     duration: '约1.5分钟',
     cardClass: 'card-8',
     iconHref: '#icon-clock',
-    timerSeconds: 3,
+    timerSeconds: 5,
     questions: [
       {
         text: '有人冲你发火——你的第一反应是？',
@@ -1515,40 +1515,40 @@ function renderAudioOptions(q, container, quiz) {
   const panel = document.getElementById('audio-panel');
   panel.style.display = 'block';
 
-  // If Test 3: one sound to play first, then text choices
-  // If Test 9: four sounds to try, then text choices
   const soundsContainer = document.getElementById('audio-sounds-container');
   soundsContainer.innerHTML = '';
 
   if (quiz.id === 'q3') {
-    // Single play button
+    // Single auto-play button; name hidden — just show play icon
     const btn = document.createElement('button');
-    btn.className = 'sound-btn';
+    btn.className = 'sound-btn playing';
     btn.style.gridColumn = '1/-1';
-    btn.innerHTML = `<svg width="14" height="14"><use href="#icon-play"/></svg> ${q.soundLabel}`;
+    btn.innerHTML = `<svg width="14" height="14"><use href="#icon-play"/></svg> 点击重播`;
     btn.addEventListener('click', () => {
+      AudioManager.stopAll();
       btn.classList.add('playing');
-      setTimeout(() => btn.classList.remove('playing'), 3500);
+      setTimeout(() => btn.classList.remove('playing'), 4000);
       AudioManager.SOUNDS[q.soundKey] && AudioManager.SOUNDS[q.soundKey]();
     });
     soundsContainer.appendChild(btn);
+    // Auto-play after short delay for AudioContext to be ready
+    setTimeout(() => {
+      AudioManager.SOUNDS[q.soundKey] && AudioManager.SOUNDS[q.soundKey]();
+      setTimeout(() => btn.classList.remove('playing'), 4000);
+    }, 300);
   } else {
-    // Test 9: 4 sound buttons
-    const soundMap = [
-      { key: 'echoWhisper',  label: '回声低语' },
-      { key: 'sharpAlert',   label: '尖锐提示音' },
-      { key: 'calmSteady',   label: '平静持续音' },
-      { key: 'staticNoise',  label: '断断续续杂音' },
-    ];
-    soundMap.forEach(s => {
+    // Test 9: 4 numbered sound buttons (no labels shown)
+    const soundKeys = ['echoWhisper', 'sharpAlert', 'calmSteady', 'staticNoise'];
+    soundKeys.forEach((key, idx) => {
       const btn = document.createElement('button');
       btn.className = 'sound-btn';
-      btn.innerHTML = `<svg width="14" height="14"><use href="#icon-play"/></svg> ${s.label}`;
+      btn.innerHTML = `<svg width="14" height="14"><use href="#icon-play"/></svg> 声音 ${idx + 1}`;
       btn.addEventListener('click', () => {
+        AudioManager.stopAll();
         soundsContainer.querySelectorAll('.sound-btn').forEach(b => b.classList.remove('playing'));
         btn.classList.add('playing');
         setTimeout(() => btn.classList.remove('playing'), 3200);
-        AudioManager.SOUNDS[s.key] && AudioManager.SOUNDS[s.key]();
+        AudioManager.SOUNDS[key] && AudioManager.SOUNDS[key]();
       });
       soundsContainer.appendChild(btn);
     });
@@ -1683,6 +1683,7 @@ function renderSlider(quiz) {
 function handleAnswer(value) {
   const quiz = state.currentQuiz;
   clearTimerInterval();
+  AudioManager.stopAll(); // Stop any playing audio before moving on
 
   state.answers.push(value);
   state.qIndex++;
@@ -1749,6 +1750,15 @@ function showResultPage() {
   iconBox.style.background = `linear-gradient(135deg, ${result.accent}30, ${result.accent}18)`;
   iconBox.innerHTML = `<svg width="46" height="46" style="fill:${result.accent}"><use href="${quiz.iconHref}"/></svg>`;
 
+  // Color swatch (Test 1 only)
+  const swatch = document.getElementById('result-color-swatch');
+  if (result.colorHex && quiz.id === 'q1') {
+    swatch.style.display = 'block';
+    swatch.style.background = result.colorHex;
+  } else {
+    swatch.style.display = 'none';
+  }
+
   // Title
   document.getElementById('result-title').textContent = result.title;
 
@@ -1767,8 +1777,12 @@ function showResultPage() {
 
   if (quiz.type === 'slider' && radarData) {
     canvas.style.display = 'block';
-    canvas.width = 360;
-    canvas.height = 320;
+    const dpr = window.devicePixelRatio || 1;
+    const cw = canvas.parentElement ? canvas.parentElement.offsetWidth : 360;
+    canvas.style.width = cw + 'px';
+    canvas.style.height = '320px';
+    canvas.width = cw * dpr;
+    canvas.height = 320 * dpr;
     setTimeout(() => {
       CanvasManager.drawRadar('result-canvas', radarData.scores, radarData.dims, 6);
     }, 100);
@@ -1785,8 +1799,12 @@ function showResultPage() {
 
   if (quiz.type === 'text' && quiz.id === 'q10') {
     canvas.style.display = 'block';
-    canvas.width = 360;
-    canvas.height = 320;
+    const dpr2 = window.devicePixelRatio || 1;
+    const cw2 = canvas.parentElement ? canvas.parentElement.offsetWidth : 360;
+    canvas.style.width = cw2 + 'px';
+    canvas.style.height = cw2 + 'px'; // square for relationship map
+    canvas.width = cw2 * dpr2;
+    canvas.height = cw2 * dpr2;
     setTimeout(() => {
       CanvasManager.drawRelationshipMap('result-canvas', resultKey);
     }, 100);
@@ -1839,16 +1857,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-start-quiz').addEventListener('click', startQuiz);
 
   document.getElementById('btn-intro-home').addEventListener('click', () => {
+    AudioManager.stopAll();
     showPage('page-home');
   });
 
   document.getElementById('btn-quiz-back').addEventListener('click', () => {
     clearTimerInterval();
+    AudioManager.stopAll();
     showPage('page-home');
   });
 
   document.getElementById('btn-quiz-home').addEventListener('click', () => {
     clearTimerInterval();
+    AudioManager.stopAll();
     showPage('page-home');
   });
 
@@ -1864,4 +1885,72 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimerInterval();
     showPage('page-home');
   });
+
+  // Principle modal
+  document.getElementById('btn-principle').addEventListener('click', () => {
+    const quiz = state.currentQuiz;
+    if (!quiz) return;
+    const p = PRINCIPLES[quiz.id];
+    if (!p) return;
+    document.getElementById('principle-modal-title').textContent = p.title;
+    document.getElementById('principle-modal-body').innerHTML = p.body;
+    document.getElementById('principle-modal-overlay').classList.add('open');
+  });
+
+  document.getElementById('principle-modal-close').addEventListener('click', () => {
+    document.getElementById('principle-modal-overlay').classList.remove('open');
+  });
+
+  document.getElementById('principle-modal-overlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      e.currentTarget.classList.remove('open');
+    }
+  });
 });
+
+// ══════════════════════════════════════════════════════════════════════════════
+// TEST PRINCIPLES DATA
+// ══════════════════════════════════════════════════════════════════════════════
+
+const PRINCIPLES = {
+  q1: {
+    title: '颜色心理学与压力反应',
+    body: `<p>颜色偏好与情绪状态密切相关，而非纯粹的审美选择。暖色（红、橙、黄）与激活型情绪（兴奋、激动、愤怒）相关；冷色（蓝、绿、紫）与抑制或内化情绪相关；中性色（灰、白、米）则常见于情绪回避或麻木状态。</p><p>Lüscher 色彩测试（1948）是该领域的经典研究，他认为人在不同心理状态下会对颜色产生不同的趋避反应。本测试通过多轮颜色选择，统计偏好色系，推断当前的压力性质与情绪应对模式。</p><p>注意：颜色感知受文化背景影响，结果仅供参考和自我探索，不作为诊断依据。</p>`
+  },
+  q2: {
+    title: '防御机制与依恋风格',
+    body: `<p>弗洛伊德提出"防御机制"的概念，指人在面对焦虑或威胁时，心理系统自动启动的保护策略。Anna Freud 在此基础上系统化了多种防御方式，如压抑、退行、投射等。</p><p>本测试将防御模式拟人化为四种"内心小怪兽"：刺猬（回避/保护型）、章鱼（焦虑依附型）、萤火虫（回避亲密型）、龙（对抗/控制型）。这些模式通常在早期关系经历中形成，并延伸至成年后的人际应对方式中。</p><p>认识自己的"怪兽"不是为了消灭它，而是理解它曾经保护了你，同时看见它在哪些时候可能限制了你。</p>`
+  },
+  q3: {
+    title: '听觉情绪处理与情感调节',
+    body: `<p>神经科学研究表明，声音会通过听觉皮层直接激活边缘系统（情绪中枢），绕过语言理性层面产生情绪反应。不同频率和节奏的声音对应不同的自主神经激活模式：高频急促音激活交感神经（警觉、焦虑）；低频稳定音有时引发共鸣感或压迫感；中频律动音能促进副交感神经激活（平静、放松）。</p><p>本测试通过让被测者在特定声音中产生感受，再选择匹配的情绪描述，反映个体的情感感知敏感度和调节风格。四种情绪类型（敏感型、平衡型、混合型、防御型）对应不同的情绪感受与表达模式。</p>`
+  },
+  q4: {
+    title: '压力应对方式理论',
+    body: `<p>Lazarus 与 Folkman（1984）提出的"认知应对理论"将压力应对分为两大类：以问题为中心的应对（积极解决）和以情绪为中心的应对（调节情绪）。后续研究者进一步扩充为四种模式：主动解决、回避/逃离、寻求社会支持、认知重评。</p><p>本测试通过情境场景设问，识别被测者在不同压力情境下倾向哪类逃脱路径，从而推断主导的应对策略。每种策略在特定情境下都有其价值，但长期依赖单一模式会降低心理弹性。</p>`
+  },
+  q5: {
+    title: '投射性测试与象征心理学',
+    body: `<p>投射性测试（Projective Tests）源于精神分析传统，基于"投射假设"：当面对模糊或开放性刺激时，人会将内心的愿望、价值观和潜意识内容投射其上。经典的投射测试如罗夏墨迹测验（Rorschach）、主题统觉测验（TAT）均基于此原理。</p><p>在象征心理学中，"门"代表过渡、机遇与选择——门的材质、形态、装饰程度都指向不同的心理意向：透明象征开放，厚重象征安全感需求，装饰性门象征对外部认可的渴望，残旧的门象征对内在世界的偏爱。</p><p>三轮选择从不同时间层（第一印象、目标导向、内在感召）收集数据，综合推断潜意识的心理取向。</p>`
+  },
+  q6: {
+    title: '压力分级与生活事件量表',
+    body: `<p>Holmes 与 Rahe（1967）提出"社会再适应量表"，将生活事件按压力强度量化。研究发现，不同类型的压力源（工作、关系、健康、经济、自我认同等）在个体心理消耗上存在显著差异，且主观评定往往比客观事件强度更能预测心理健康影响。</p><p>本测试通过被测者对多种压力场景的评级，识别其当前最显著的压力领域，反映个体生命阶段的核心议题和价值观优先级。压力分布图谱也能揭示哪些领域最需要当下的资源投入和心理关注。</p>`
+  },
+  q7: {
+    title: '自我慈悲与自我照料研究',
+    body: `<p>Kristin Neff（2003）的自我慈悲理论指出，有效的自我照料不仅是行为层面的（睡眠、饮食），更涉及情绪允许（允许自己感受）、认知自我对话（内在声音是否温柔）以及与快乐的联结能力。</p><p>研究一致表明，自我照料不足与焦虑、抑郁、职业倦怠显著相关。本测试从五个维度进行评估：身体照料（基础生理需求）、情绪允许（情绪接纳度）、边界设定（说不的能力）、自我对话（内在批评程度）、快乐供给（主动创造积极体验）。雷达图可直观呈现五维度的均衡状态，识别最需要关注的领域。</p>`
+  },
+  q8: {
+    title: '双过程理论与本能防御反应',
+    body: `<p>诺贝尔经济学奖得主丹尼尔·卡尼曼（2011）在《思考，快与慢》中提出"双过程理论"：系统一（快速、直觉、自动化）和系统二（慢速、理性、审慎）。在压力或威胁情境下，系统一会优先激活，产生本能的防御反应。</p><p>本能防御反应模式通常分为四种（4F模型）：Fight（战斗/对抗）、Flight（逃跑/回避）、Freeze（冻结/麻木）、Fawn（讨好/顺从）。本测试通过限时场景选择，最大化系统一的介入，让被测者在来不及"想清楚"的情况下暴露真实的本能防御倾向。</p>`
+  },
+  q9: {
+    title: '内在家庭系统与内心声音',
+    body: `<p>Richard Schwartz 在 1980 年代发展出"内在家庭系统理论"（IFS），认为每个人的心理由多个"内在部分"（parts）组成，各部分都有其目的和声音。常见的内在声音包括：批评者（Critic）、忧虑者（Worrier）、观察者（Observer）、鼓励者（Encourager）等。</p><p>声音的感知质感（低沉/尖锐/平稳/嘈杂）与这些内在角色的情绪特征高度对应：低沉回响对应批评或内疚感；尖锐警报对应焦虑型监控；平稳持续对应观察者/见证者；杂乱噪音对应混乱或过度思虑。通过声音激活再对应内心独白，可以更直觉地识别主导性内在声音。</p>`
+  },
+  q10: {
+    title: '依恋理论与关系距离模式',
+    body: `<p>John Bowlby（1969）创立依恋理论，Mary Ainsworth（1978）通过"陌生情境实验"识别出三种核心依恋风格：安全型、焦虑-矛盾型、回避型。后续研究者 Disorganized 增加了混乱型。</p><p>依恋风格源于早期照顾者关系的经历，形成对"亲密是否安全"的内在工作模型（Internal Working Model），并延续至成人的所有亲密关系中。不同依恋风格在关系距离设定上有显著差异：安全型能灵活调整距离；焦虑型倾向让重要他人尽量靠近；回避型则维持普遍的情感距离；混乱型的距离分布最不规律。关系地图直观呈现了这种距离偏好模式。</p>`
+  },
+};

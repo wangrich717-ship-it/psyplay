@@ -63,9 +63,6 @@
 <section id="page-home" class="page active">
   <header class="site-header">
     <div class="site-logo">
-      <div class="logo-mark">
-        <svg><use href="#icon-brain"/></svg>
-      </div>
       <span class="logo-text">画心PSY</span>
     </div>
     <p class="site-slogan">测测你的内在画像</p>
@@ -170,6 +167,8 @@
     <div class="result-icon-box" id="result-icon-box">
       <svg><use href="#icon-brain"/></svg>
     </div>
+    <!-- Color swatch shown for Test 1 only -->
+    <div id="result-color-swatch"></div>
     <p class="result-label-small">你的类型是</p>
     <h2 class="result-title" id="result-title"></h2>
   </div>
@@ -181,7 +180,7 @@
   </div>
 
   <!-- Canvas (Tests 7 & 10) -->
-  <canvas id="result-canvas" width="360" height="320"></canvas>
+  <canvas id="result-canvas" width="360" height="320" style="display:none"></canvas>
 
   <!-- Dimension tips (Test 7) -->
   <div class="dimension-tips" id="dimension-tips" style="display:none"></div>
@@ -197,6 +196,9 @@
       <svg><use href="#icon-reload"/></svg>
       重新测试
     </button>
+    <button class="btn-principle" id="btn-principle">
+      查看测试原理
+    </button>
     <button class="btn-primary" id="btn-home">
       <svg><use href="#icon-home"/></svg>
       返回首页
@@ -206,6 +208,17 @@
 
 <!-- Toast notification -->
 <div class="toast" id="toast">已复制到剪贴板</div>
+
+<!-- Principle modal -->
+<div class="principle-modal-overlay" id="principle-modal-overlay">
+  <div class="principle-modal">
+    <div class="principle-modal-header">
+      <span class="principle-modal-title" id="principle-modal-title">测试原理</span>
+      <button class="principle-modal-close" id="principle-modal-close">×</button>
+    </div>
+    <div class="principle-modal-body" id="principle-modal-body"></div>
+  </div>
+</div>
 
 <script src="audio.js"></script>
 <script src="canvas.js"></script>

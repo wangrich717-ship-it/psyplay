@@ -358,12 +358,12 @@ body {
 /* Color swatches (Test 1) */
 .options-color {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px 12px;
-  padding-bottom: 22px; /* space for labels below circles */
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px 8px;
+  padding-bottom: 0;
 }
 
-@media (max-width: 380px) { .options-color { grid-template-columns: repeat(4, 1fr); gap: 8px 10px; } }
+@media (max-width: 380px) { .options-color { grid-template-columns: repeat(8, 1fr); gap: 6px; } }
 
 .color-option {
   border-radius: 50%;
@@ -371,24 +371,15 @@ body {
   position: relative;
   cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  border: 3px solid transparent;
-  outline: 3px solid transparent;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
   outline-offset: 2px;
 }
-.color-option:hover { transform: scale(1.1); box-shadow: 0 5px 16px rgba(0,0,0,0.2); }
-.color-option.selected { outline-color: var(--purple); box-shadow: 0 0 0 5px rgba(124,58,237,0.18); }
+.color-option:hover { transform: scale(1.12); box-shadow: 0 4px 12px rgba(0,0,0,0.22); }
+.color-option.selected { outline-color: var(--purple); box-shadow: 0 0 0 4px rgba(124,58,237,0.22); }
 .color-option-label {
-  position: absolute;
-  bottom: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  text-align: center;
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--text-mid);
-  text-shadow: none;
+  display: none;
 }
 
 /* Text options (most tests) */
@@ -641,7 +632,7 @@ input[type="range"]::-moz-range-thumb {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  background: linear-gradient(135deg, var(--orange), #F0C040);
   color: #fff;
   border: none;
   border-radius: var(--radius-btn);
@@ -650,11 +641,11 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 700;
   cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 4px 16px rgba(124,58,237,0.3);
+  box-shadow: 0 4px 16px rgba(230,140,30,0.35);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(124,58,237,0.4);
+  box-shadow: 0 6px 22px rgba(230,140,30,0.45);
 }
 .btn-primary svg { width: 18px; height: 18px; fill: #fff; }
 
@@ -766,12 +757,98 @@ input[type="range"]::-moz-range-thumb {
 #result-canvas {
   display: block;
   width: 100%;
-  max-width: 360px;
-  height: 320px;
-  margin: 24px auto;
+  height: auto;
+  aspect-ratio: auto;
+  margin: 24px auto 0;
   border-radius: 16px;
   background: var(--surface);
   border: 1.5px solid var(--border);
+}
+
+/* Result color swatch (Test 1) */
+#result-color-swatch {
+  display: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 12px auto 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  border: 3px solid rgba(255,255,255,0.8);
+}
+
+/* Principle modal */
+.principle-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 9000;
+  align-items: flex-end;
+  justify-content: center;
+}
+.principle-modal-overlay.open {
+  display: flex;
+}
+.principle-modal {
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 28px 24px 40px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 75vh;
+  overflow-y: auto;
+  animation: slideUp 0.28s ease;
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.principle-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.principle-modal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.principle-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+.principle-modal-body {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-dark);
+}
+.principle-modal-body p {
+  margin: 0 0 12px;
+}
+.btn-principle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.btn-principle:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: #fff8ed;
 }
 
 /* Dimension tips (Test 7) */

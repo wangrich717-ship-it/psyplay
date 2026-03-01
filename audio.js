@@ -17,6 +17,14 @@ const AudioManager = (() => {
     return c;
   }
 
+  // Stop all audio immediately by closing the AudioContext
+  function stopAll() {
+    if (ctx) {
+      try { ctx.close(); } catch (e) {}
+      ctx = null;
+    }
+  }
+
   function playTone({ frequency = 440, duration = 1, type = 'sine', volume = 0.28, delay = 0 } = {}) {
     const c = resume();
     const osc = c.createOscillator();
@@ -95,58 +103,53 @@ const AudioManager = (() => {
     gain.connect(c.destination);
     delay.connect(c.destination);
     osc.type = 'sine';
-    osc.frequency.value = 80;
+    osc.frequency.value = 180; // raised from 80Hz for audibility on phone speakers
     gain.gain.setValueAtTime(0.22, c.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + 3);
     osc.start(c.currentTime);
     osc.stop(c.currentTime + 3.5);
   }
 
+  // Heartbeat: two-part lub-dub at ~60 BPM, 4 beats
+  function playHeartbeat() {
+    for (let i = 0; i < 4; i++) {
+      const t = i * 1.0;
+      playTone({ frequency: 70,  duration: 0.14, type: 'sine', volume: 0.45, delay: t });
+      playTone({ frequency: 55,  duration: 0.12, type: 'sine', volume: 0.35, delay: t + 0.20 });
+    }
+  }
+
   // Named sounds used in quizzes
   const SOUNDS = {
     // Test 3: Emotion Tone
-    // 低沉嗡鸣 - 双频叠加确保在各种设备上可听
+    // 持续中频音 — more audible mid-range drone (was 100/150Hz; raised for phone speaker audibility)
     lowHum: () => {
-      playTone({ frequency: 100, duration: 3.5, type: 'sine', volume: 0.30 });
-      playTone({ frequency: 150, duration: 3.5, type: 'sine', volume: 0.18 });
+      playTone({ frequency: 280, duration: 4, type: 'sine', volume: 0.32 });
+      playTone({ frequency: 350, duration: 4, type: 'sine', volume: 0.18 });
     },
-    // 高频叮声 - 三次清脆提示
     highBeep: () => {
       [0, 0.55, 1.1].forEach(d => playTone({ frequency: 1100, duration: 0.45, type: 'triangle', volume: 0.32, delay: d }));
     },
     midWave: () => playMidWave(),
     irregular: () => playIrregular(),
-    // 和谐双音 - 三度和弦 + 五度和弦交替
     harmony: () => {
       playTone({ frequency: 264, duration: 3, type: 'sine', volume: 0.25 });
       playTone({ frequency: 330, duration: 3, type: 'sine', volume: 0.22 });
       playTone({ frequency: 396, duration: 3, type: 'sine', volume: 0.15 });
     },
-    // 静默体验 - 极弱的底噪，让按钮有响应感
-    silence: () => {
-      const c = resume();
-      const osc = c.createOscillator();
-      const g = c.createGain();
-      osc.connect(g);
-      g.connect(c.destination);
-      osc.frequency.value = 40;
-      g.gain.setValueAtTime(0.015, c.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + 2);
-      osc.start(c.currentTime);
-      osc.stop(c.currentTime + 2.1);
-    },
+    // 心跳律动 — replaces silence; rhythmic emotional resonance
+    heartbeat: () => playHeartbeat(),
 
     // Test 9: Inner Voice
     echoWhisper: () => playEchoWhisper(),
-    // 尖锐提示音 - 更长、更有警告感
     sharpAlert: () => {
-      playTone({ frequency: 880, duration: 0.2, type: 'square', volume: 0.30, delay: 0 });
+      playTone({ frequency: 880,  duration: 0.2,  type: 'square',   volume: 0.30, delay: 0 });
       playTone({ frequency: 1100, duration: 0.35, type: 'triangle', volume: 0.28, delay: 0.25 });
-      playTone({ frequency: 880, duration: 0.2, type: 'square', volume: 0.22, delay: 0.65 });
+      playTone({ frequency: 880,  duration: 0.2,  type: 'square',   volume: 0.22, delay: 0.65 });
     },
     calmSteady: () => playTone({ frequency: 220, duration: 3.5, type: 'sine', volume: 0.28 }),
     staticNoise: () => playWhiteNoise(2.5),
   };
 
-  return { SOUNDS, resume, playTone };
+  return { SOUNDS, resume, stopAll };
 })();

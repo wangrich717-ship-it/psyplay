@@ -105,23 +105,47 @@ const AudioManager = (() => {
   // Named sounds used in quizzes
   const SOUNDS = {
     // Test 3: Emotion Tone
-    lowHum:    () => playTone({ frequency: 80, duration: 3, type: 'sine' }),
-    highBeep:  () => {
-      [0, 0.6, 1.2].forEach(d => playTone({ frequency: 1200, duration: 0.5, type: 'triangle', delay: d }));
+    // 低沉嗡鸣 - 双频叠加确保在各种设备上可听
+    lowHum: () => {
+      playTone({ frequency: 100, duration: 3.5, type: 'sine', volume: 0.30 });
+      playTone({ frequency: 150, duration: 3.5, type: 'sine', volume: 0.18 });
     },
-    midWave:   () => playMidWave(),
+    // 高频叮声 - 三次清脆提示
+    highBeep: () => {
+      [0, 0.55, 1.1].forEach(d => playTone({ frequency: 1100, duration: 0.45, type: 'triangle', volume: 0.32, delay: d }));
+    },
+    midWave: () => playMidWave(),
     irregular: () => playIrregular(),
-    harmony:   () => {
-      playTone({ frequency: 264, duration: 3, type: 'sine', volume: 0.22 });
+    // 和谐双音 - 三度和弦 + 五度和弦交替
+    harmony: () => {
+      playTone({ frequency: 264, duration: 3, type: 'sine', volume: 0.25 });
       playTone({ frequency: 330, duration: 3, type: 'sine', volume: 0.22 });
+      playTone({ frequency: 396, duration: 3, type: 'sine', volume: 0.15 });
     },
-    silence:   () => { /* silence is the sound */ },
+    // 静默体验 - 极弱的底噪，让按钮有响应感
+    silence: () => {
+      const c = resume();
+      const osc = c.createOscillator();
+      const g = c.createGain();
+      osc.connect(g);
+      g.connect(c.destination);
+      osc.frequency.value = 40;
+      g.gain.setValueAtTime(0.015, c.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + 2);
+      osc.start(c.currentTime);
+      osc.stop(c.currentTime + 2.1);
+    },
 
     // Test 9: Inner Voice
-    echoWhisper:  () => playEchoWhisper(),
-    sharpAlert:   () => playTone({ frequency: 800, duration: 0.3, type: 'triangle' }),
-    calmSteady:   () => playTone({ frequency: 220, duration: 3, type: 'sine', volume: 0.25 }),
-    staticNoise:  () => playWhiteNoise(2),
+    echoWhisper: () => playEchoWhisper(),
+    // 尖锐提示音 - 更长、更有警告感
+    sharpAlert: () => {
+      playTone({ frequency: 880, duration: 0.2, type: 'square', volume: 0.30, delay: 0 });
+      playTone({ frequency: 1100, duration: 0.35, type: 'triangle', volume: 0.28, delay: 0.25 });
+      playTone({ frequency: 880, duration: 0.2, type: 'square', volume: 0.22, delay: 0.65 });
+    },
+    calmSteady: () => playTone({ frequency: 220, duration: 3.5, type: 'sine', volume: 0.28 }),
+    staticNoise: () => playWhiteNoise(2.5),
   };
 
   return { SOUNDS, resume, playTone };

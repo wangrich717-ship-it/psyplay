@@ -225,8 +225,32 @@ body {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
+
+.intro-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-secondary-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: color var(--transition), background var(--transition);
+}
+.btn-secondary-sm:hover { color: var(--purple); background: var(--purple-bg); }
+.btn-secondary-sm svg { width: 15px; height: 15px; fill: currentColor; }
 
 .meta-chip {
   display: inline-flex;
@@ -302,8 +326,18 @@ body {
   text-align: right;
 }
 
+.quiz-title-bar {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-align: center;
+  padding: 4px 0 12px;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+
 .question-wrap {
-  padding-top: 32px;
+  padding-top: 20px;
 }
 
 .question-text {
@@ -311,36 +345,39 @@ body {
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 28px;
-  line-height: 1.5;
+  line-height: 1.6;
+  white-space: pre-line;
 }
 
 /* Color swatches (Test 1) */
 .options-color {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
+@media (max-width: 380px) { .options-color { grid-template-columns: repeat(4, 1fr); gap: 8px; } }
+
 .color-option {
-  border-radius: 14px;
-  padding-bottom: 100%;
+  border-radius: 12px;
+  padding-bottom: 90%;
   position: relative;
   cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  border: 3px solid transparent;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  border: 2.5px solid transparent;
 }
-.color-option:hover { transform: scale(1.06); }
-.color-option.selected { border-color: var(--purple); box-shadow: 0 0 0 4px rgba(124,58,237,0.25); }
+.color-option:hover { transform: scale(1.07); }
+.color-option.selected { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124,58,237,0.25); }
 .color-option-label {
   position: absolute;
-  bottom: 6px;
+  bottom: 5px;
   left: 0; right: 0;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
 }
 
 /* Text options (most tests) */
@@ -386,28 +423,31 @@ body {
 /* Door options (Test 5) */
 .options-door {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
+
+@media (max-width: 420px) { .options-door { grid-template-columns: repeat(2, 1fr); } }
 
 .door-option {
   cursor: pointer;
   border-radius: 14px;
   overflow: hidden;
-  border: 3px solid transparent;
+  border: 2.5px solid transparent;
   transition: transform var(--transition), border-color var(--transition);
   box-shadow: var(--shadow-sm);
+  background: var(--surface);
 }
-.door-option:hover { transform: scale(1.04); }
+.door-option:hover { transform: scale(1.05); border-color: var(--purple-light); }
 .door-option.selected { border-color: var(--purple); }
 
-.door-svg { width: 100%; height: 140px; display: block; }
+.door-svg { width: 100%; height: 110px; display: block; }
 .door-label {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--text-mid);
-  padding: 8px 0 10px;
+  padding: 6px 4px 8px;
   background: var(--surface);
 }
 
@@ -444,14 +484,15 @@ body {
   background: var(--surface);
   border: 2px solid var(--border);
   border-radius: 16px;
-  padding: 22px 14px;
+  padding: 18px 12px;
   cursor: pointer;
   text-align: center;
-  font-size: 1.15rem;
-  font-weight: 800;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--text-dark);
   transition: all var(--transition);
   box-shadow: var(--shadow-sm);
+  line-height: 1.4;
 }
 .timed-option:hover { border-color: var(--purple); background: var(--purple-bg); transform: scale(1.03); }
 .timed-option.selected { border-color: var(--purple); background: var(--purple-bg); }

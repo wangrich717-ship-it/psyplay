@@ -15,74 +15,134 @@ const QUIZZES = [
     tagline: '颜色不会撒谎，你的眼睛会告诉我一切',
     type: 'color',
     typeLabel: '颜色选择',
-    duration: '约1分钟',
+    duration: '约2分钟',
     cardClass: 'card-1',
     iconHref: '#icon-chart',
     questions: [
       {
         text: '现在，你最想把自己裹在哪种颜色里？',
         options: [
-          { hex: '#1a3a6b', name: '深蓝', cat: 'C' },
-          { hex: '#f5f0e0', name: '奶白', cat: 'N' },
-          { hex: '#e8440a', name: '橘红', cat: 'W' },
-          { hex: '#5a6e2e', name: '橄榄绿', cat: 'C' },
-          { hex: '#9b7ec8', name: '淡紫', cat: 'G' },
-          { hex: '#2c2c2c', name: '炭黑', cat: 'G' },
+          { hex: '#2B4590', name: '深蓝', cat: 'C' },
+          { hex: '#F5EFE0', name: '奶白', cat: 'N' },
+          { hex: '#E8440A', name: '橘红', cat: 'W' },
+          { hex: '#5A6E2E', name: '橄榄绿', cat: 'C' },
+          { hex: '#B09CD0', name: '淡紫', cat: 'G' },
+          { hex: '#2C2C2C', name: '炭黑', cat: 'G' },
+          { hex: '#F5A623', name: '暖橙', cat: 'W' },
+          { hex: '#87CEEB', name: '天蓝', cat: 'C' },
+          { hex: '#C4557C', name: '玫红', cat: 'S' },
+          { hex: '#8B6843', name: '原木棕', cat: 'N' },
+          { hex: '#4CAF8C', name: '松石绿', cat: 'C' },
+          { hex: '#FFE135', name: '柠黄', cat: 'S' },
+          { hex: '#B8D8EA', name: '冰蓝', cat: 'N' },
+          { hex: '#CC6633', name: '赤陶', cat: 'W' },
+          { hex: '#9E9E9E', name: '暖灰', cat: 'N' },
+          { hex: '#3D2B1F', name: '深棕', cat: 'G' },
         ]
       },
       {
         text: '你的卧室如果只能保留一种颜色，你留哪个？',
         options: [
-          { hex: '#f5e6d0', name: '米黄', cat: 'N' },
-          { hex: '#e8775c', name: '珊瑚', cat: 'W' },
-          { hex: '#7ba7c0', name: '灰蓝', cat: 'C' },
-          { hex: '#2d5a27', name: '深绿', cat: 'C' },
-          { hex: '#c4557c', name: '玫红', cat: 'S' },
-          { hex: '#8b6843', name: '原木棕', cat: 'N' },
+          { hex: '#F5E6D0', name: '米黄', cat: 'N' },
+          { hex: '#E8775C', name: '珊瑚', cat: 'W' },
+          { hex: '#7BA7C0', name: '灰蓝', cat: 'C' },
+          { hex: '#2D5A27', name: '深绿', cat: 'C' },
+          { hex: '#C4557C', name: '玫红', cat: 'S' },
+          { hex: '#8B6843', name: '原木棕', cat: 'N' },
+          { hex: '#E8D5B7', name: '沙杏', cat: 'N' },
+          { hex: '#4A90D9', name: '晴蓝', cat: 'C' },
+          { hex: '#D4A5A5', name: '雾粉', cat: 'N' },
+          { hex: '#5C8A5C', name: '苔绿', cat: 'C' },
+          { hex: '#F0E68C', name: '淡金', cat: 'W' },
+          { hex: '#808080', name: '中灰', cat: 'G' },
+          { hex: '#9370DB', name: '丁香紫', cat: 'G' },
+          { hex: '#E07B54', name: '暖陶', cat: 'W' },
+          { hex: '#DDEEFF', name: '薄荷白', cat: 'N' },
+          { hex: '#1A1A2A', name: '深夜蓝', cat: 'G' },
         ]
       },
       {
         text: '哪个颜色让你感到「安全」？',
         options: [
-          { hex: '#87ceeb', name: '天蓝', cat: 'C' },
-          { hex: '#4b2d8b', name: '深紫', cat: 'G' },
-          { hex: '#ff9a3c', name: '暖橙', cat: 'W' },
-          { hex: '#5a7a3d', name: '苔绿', cat: 'C' },
-          { hex: '#f0c4b0', name: '裸粉', cat: 'N' },
-          { hex: '#f8f8f8', name: '纯白', cat: 'N' },
+          { hex: '#87CEEB', name: '天蓝', cat: 'C' },
+          { hex: '#8B69C8', name: '薰衣草', cat: 'G' },
+          { hex: '#FF9A3C', name: '暖橙', cat: 'W' },
+          { hex: '#5A7A3D', name: '苔绿', cat: 'C' },
+          { hex: '#F0C4B0', name: '裸粉', cat: 'N' },
+          { hex: '#F8F8F8', name: '纯白', cat: 'N' },
+          { hex: '#2E4A8B', name: '海军蓝', cat: 'C' },
+          { hex: '#D2B48C', name: '燕麦', cat: 'N' },
+          { hex: '#4CAF8C', name: '薄荷绿', cat: 'C' },
+          { hex: '#F5DEB3', name: '小麦色', cat: 'N' },
+          { hex: '#B0C4DE', name: '钢蓝', cat: 'C' },
+          { hex: '#DDA0DD', name: '梅花紫', cat: 'G' },
+          { hex: '#90EE90', name: '嫩草绿', cat: 'C' },
+          { hex: '#FFB6C1', name: '浅玫粉', cat: 'W' },
+          { hex: '#F4A460', name: '沙棕', cat: 'N' },
+          { hex: '#708090', name: '石板灰', cat: 'G' },
         ]
       },
       {
         text: '哪个颜色让你最想逃跑？（选你最抗拒的）',
         options: [
-          { hex: '#ffe135', name: '柠檬黄', cat: 'S' },
-          { hex: '#8b0000', name: '血红', cat: 'S' },
-          { hex: '#39ff14', name: '荧光绿', cat: 'S' },
-          { hex: '#9b8fa3', name: '灰紫', cat: 'G' },
-          { hex: '#3d2b1f', name: '暗棕', cat: 'G' },
-          { hex: '#b8d8ea', name: '冰蓝', cat: 'C' },
+          { hex: '#FFE135', name: '荧光黄', cat: 'S' },
+          { hex: '#8B0000', name: '血红', cat: 'S' },
+          { hex: '#39FF14', name: '荧光绿', cat: 'S' },
+          { hex: '#9B8FA3', name: '灰紫', cat: 'G' },
+          { hex: '#3D2B1F', name: '暗棕', cat: 'G' },
+          { hex: '#B8D8EA', name: '冰蓝', cat: 'C' },
+          { hex: '#FF69B4', name: '粉嫩粉', cat: 'S' },
+          { hex: '#FF4500', name: '橙红', cat: 'S' },
+          { hex: '#D3D3D3', name: '浅灰', cat: 'N' },
+          { hex: '#006400', name: '深绿', cat: 'C' },
+          { hex: '#800080', name: '深紫', cat: 'G' },
+          { hex: '#FFA500', name: '亮橙', cat: 'W' },
+          { hex: '#A0522D', name: '锈棕', cat: 'G' },
+          { hex: '#00CED1', name: '青绿', cat: 'C' },
+          { hex: '#DC143C', name: '深玫红', cat: 'S' },
+          { hex: '#F0E68C', name: '姜黄', cat: 'N' },
         ]
       },
       {
         text: '你现在的心情如果是一种颜色，是？',
         options: [
-          { hex: '#ffe135', name: '明黄', cat: 'W' },
-          { hex: '#b0b0b0', name: '浅灰', cat: 'G' },
-          { hex: '#cc2200', name: '深红', cat: 'S' },
-          { hex: '#4caf8c', name: '蓝绿', cat: 'C' },
-          { hex: '#5d2b8b', name: '暗紫', cat: 'G' },
-          { hex: '#f5a0b0', name: '橙粉', cat: 'W' },
+          { hex: '#FFE135', name: '明黄', cat: 'W' },
+          { hex: '#B0B0B0', name: '浅灰', cat: 'G' },
+          { hex: '#CC2200', name: '深红', cat: 'S' },
+          { hex: '#4CAF8C', name: '蓝绿', cat: 'C' },
+          { hex: '#7B68EE', name: '紫蓝', cat: 'G' },
+          { hex: '#F5A0B0', name: '橙粉', cat: 'W' },
+          { hex: '#4682B4', name: '钢蓝', cat: 'C' },
+          { hex: '#FF7F50', name: '珊瑚橙', cat: 'W' },
+          { hex: '#2F4F4F', name: '深石绿', cat: 'G' },
+          { hex: '#DAA520', name: '金棕', cat: 'W' },
+          { hex: '#E8E8E8', name: '月白', cat: 'N' },
+          { hex: '#8B4513', name: '深棕', cat: 'G' },
+          { hex: '#20B2AA', name: '清翠', cat: 'C' },
+          { hex: '#FF6B6B', name: '珊瑚红', cat: 'S' },
+          { hex: '#9B9B9B', name: '铁灰', cat: 'G' },
+          { hex: '#7EC8A4', name: '薄荷', cat: 'C' },
         ]
       },
       {
         text: '哪个颜色最像你理想中的明天？',
         options: [
-          { hex: '#f5a623', name: '金橙', cat: 'W' },
-          { hex: '#4aa8c8', name: '湖蓝', cat: 'C' },
-          { hex: '#7bc46e', name: '嫩绿', cat: 'C' },
-          { hex: '#e8a0b0', name: '玫瑰', cat: 'W' },
-          { hex: '#e8e8e8', name: '银白', cat: 'N' },
-          { hex: '#c4683a', name: '赤陶', cat: 'W' },
+          { hex: '#F5A623', name: '金橙', cat: 'W' },
+          { hex: '#4AA8C8', name: '湖蓝', cat: 'C' },
+          { hex: '#7BC46E', name: '嫩绿', cat: 'C' },
+          { hex: '#E8A0B0', name: '玫瑰', cat: 'W' },
+          { hex: '#E8E8E8', name: '银白', cat: 'N' },
+          { hex: '#C4683A', name: '赤陶', cat: 'W' },
+          { hex: '#6495ED', name: '矢车菊蓝', cat: 'C' },
+          { hex: '#98FB98', name: '嫩薄荷', cat: 'C' },
+          { hex: '#FFD700', name: '明金', cat: 'W' },
+          { hex: '#DDA0DD', name: '丁香', cat: 'G' },
+          { hex: '#B0E0E6', name: '粉蓝', cat: 'N' },
+          { hex: '#FA8072', name: '三文鱼', cat: 'W' },
+          { hex: '#ADFF2F', name: '草绿', cat: 'C' },
+          { hex: '#E6E6FA', name: '薰衣白', cat: 'N' },
+          { hex: '#FF8C00', name: '暗橙', cat: 'W' },
+          { hex: '#40E0D0', name: '绿松石', cat: 'C' },
         ]
       },
     ],
@@ -131,7 +191,7 @@ const QUIZZES = [
     id: 'q2',
     num: '02',
     title: '你的内心小怪兽长什么样？',
-    tagline: '每个人心里都住着一只小怪兽，它是你最诚实的部分',
+    tagline: '每个人心里都住着一只小怪兽，它比你更诚实',
     type: 'text',
     typeLabel: '词语联想',
     duration: '约2分钟',
@@ -139,43 +199,43 @@ const QUIZZES = [
     iconHref: '#icon-brain',
     questions: [
       {
-        text: '【镜子】让你想到什么？',
-        options: ['A. 我自己', 'B. 某个人', 'C. 一个空房间', 'D. 不想看'],
+        text: '「镜子」——你看到的第一个画面是？',
+        options: ['我自己的脸', '某个人的脸', '一个空荡荡的房间', '我不喜欢照镜子'],
         scores: ['firefly', 'octopus', 'hedgehog', 'hedgehog']
       },
       {
-        text: '【深夜3点】你在做什么？',
-        options: ['A. 睡着了', 'B. 刷手机', 'C. 想事情', 'D. 哭或接近哭'],
+        text: '「深夜3点钟」——你通常在做什么？',
+        options: ['早就睡着了', '刷手机，挺正常的', '脑子里想东想西', '快要哭了或者正在哭'],
         scores: ['dragon', 'firefly', 'hedgehog', 'octopus']
       },
       {
-        text: '【有人说你变了】你的第一反应是？',
-        options: ['A. 真的吗？哪里变了', 'B. 谢谢', 'C. 有什么问题吗', 'D. 内心一紧'],
+        text: '「有人说你变了」——你的第一反应？',
+        options: ['真的吗，哪里变了？', '谢谢，是变好了吗', '怎么了，有问题吗', '心里咯噔了一下'],
         scores: ['octopus', 'firefly', 'hedgehog', 'hedgehog']
       },
       {
-        text: '【被人需要】这个感觉是？',
-        options: ['A. 有点累但甜', 'B. 很开心', 'C. 有压力', 'D. 会逃跑'],
+        text: '「被人需要的感觉」——对你来说是？',
+        options: ['有点累，但是甜的', '很开心，我喜欢这种感觉', '有点压力，不太自在', '本能地想逃跑'],
         scores: ['octopus', 'firefly', 'hedgehog', 'hedgehog']
       },
       {
-        text: '【空旷的广场】你感到？',
-        options: ['A. 自由', 'B. 孤独', 'C. 想跑', 'D. 不舒服'],
+        text: '「一片空旷的广场，只有你一个人」——你感到？',
+        options: ['自由，终于', '有点孤独', '莫名想往前跑', '不舒服，想找个角落'],
         scores: ['dragon', 'hedgehog', 'firefly', 'hedgehog']
       },
       {
-        text: '【有人突然对你特别好】你第一反应是？',
-        options: ['A. 开心接受', 'B. 受宠若惊', 'C. 他想要什么', 'D. 感动但不敢靠近'],
+        text: '「有人突然对你特别好」——你第一反应是？',
+        options: ['开心接受，很好啊', '有点受宠若惊', '他有什么目的吗', '感动，但不敢太靠近'],
         scores: ['dragon', 'firefly', 'hedgehog', 'hedgehog']
       },
       {
-        text: '【一个没有终点的楼梯】你会？',
-        options: ['A. 继续爬', 'B. 停下来看看', 'C. 往下走', 'D. 直接坐下来'],
+        text: '「一段没有终点的楼梯」——你会？',
+        options: ['继续往上爬', '先停下来看看情况', '掉头往下走', '直接在台阶上坐下来'],
         scores: ['dragon', 'octopus', 'hedgehog', 'dragon']
       },
       {
-        text: '【你的名字】让你感觉？',
-        options: ['A. 就是我', 'B. 还行', 'C. 有点陌生', 'D. 沉甸甸的'],
+        text: '「你自己的名字」——听到或看到它，你感觉？',
+        options: ['就是我，很自然', '还好，没特别感觉', '有点陌生，像在说另一个人', '像一个沉甸甸的东西压着'],
         scores: ['firefly', 'dragon', 'hedgehog', 'octopus']
       },
     ],
@@ -225,45 +285,45 @@ const QUIZZES = [
     iconHref: '#icon-sound',
     questions: [
       {
-        text: '先点击播放声音，听完后选择你的感受',
+        text: '先播放声音，闭上眼睛听完，再选你的感受',
         soundKey: 'lowHum',
-        soundLabel: '低沉嗡鸣 (80Hz)',
-        options: ['A. 感到压迫', 'B. 感到稳定', 'C. 想睡觉', 'D. 有些不舒服'],
+        soundLabel: '低沉持续嗡鸣',
+        options: ['有一种被压住的感觉', '感到稳定、踏实', '有点想睡觉', '莫名地不舒服'],
         scores: ['S', 'B', 'D', 'M']
       },
       {
-        text: '先点击播放声音，听完后选择你的感受',
+        text: '先播放声音，闭上眼睛听完，再选你的感受',
         soundKey: 'highBeep',
         soundLabel: '高频短促叮声',
-        options: ['A. 立刻警觉', 'B. 感到清醒', 'C. 有点烦躁', 'D. 莫名兴奋'],
+        options: ['立刻警觉，心跳加速', '感到清醒和专注', '有点烦躁，想跳过', '莫名有点兴奋'],
         scores: ['S', 'B', 'D', 'M']
       },
       {
-        text: '先点击播放声音，听完后选择你的感受',
+        text: '先播放声音，闭上眼睛听完，再选你的感受',
         soundKey: 'midWave',
-        soundLabel: '中频缓慢起伏',
-        options: ['A. 很平静', 'B. 有点忧伤', 'C. 感到期待', 'D. 没什么感觉'],
+        soundLabel: '中频缓慢起伏音',
+        options: ['很平静，像呼吸', '有点忧伤，说不清', '有点期待感', '什么都没感觉到'],
         scores: ['B', 'S', 'M', 'D']
       },
       {
-        text: '先点击播放声音，听完后选择你的感受',
+        text: '先播放声音，闭上眼睛听完，再选你的感受',
         soundKey: 'irregular',
-        soundLabel: '不规则敲击节奏',
-        options: ['A. 有点焦虑', 'B. 觉得有趣', 'C. 心跳加速', 'D. 想把它关掉'],
-        scores: ['S', 'B', 'S', 'D']
+        soundLabel: '不规则随机敲击',
+        options: ['有点焦虑，坐不住', '觉得挺有意思的', '心跳不自觉跟上去', '想把它关掉'],
+        scores: ['S', 'B', 'M', 'D']
       },
       {
-        text: '先点击播放声音，听完后选择你的感受',
+        text: '先播放声音，闭上眼睛听完，再选你的感受',
         soundKey: 'harmony',
-        soundLabel: '和谐双音调',
-        options: ['A. 感到温暖', 'B. 有点诡异', 'C. 很放松', 'D. 莫名想哭'],
+        soundLabel: '三音和弦',
+        options: ['感到温暖，想停留', '有点奇怪，哪里不对', '整个人放松下来了', '莫名有点想哭'],
         scores: ['B', 'M', 'B', 'S']
       },
       {
-        text: '这道题没有声音。\n静默本身是一种声音——你感受到了什么？',
+        text: '这一题，点击播放后几乎没有声音。\n静默本身是一种声音——你感受到了什么？',
         soundKey: 'silence',
-        soundLabel: '静默（无声）',
-        options: ['A. 很舒适', 'B. 有点难受', 'C. 好奇地等待', 'D. 感到空洞'],
+        soundLabel: '静默体验',
+        options: ['挺舒服的，难得的安静', '有点难受，不自在', '好奇地等待，像在预期什么', '感到一种空洞'],
         scores: ['B', 'S', 'M', 'D']
       },
     ],
@@ -409,85 +469,127 @@ const QUIZZES = [
     id: 'q5',
     num: '05',
     title: '你的潜意识喜欢哪个门？',
-    tagline: '门的另一边是你还不认识的自己',
+    tagline: '门的另一边，是你还不认识的自己',
     type: 'door',
     typeLabel: '视觉直觉',
-    duration: '约45秒',
+    duration: '约1分钟',
     cardClass: 'card-5',
     iconHref: '#icon-arrow-right',
     questions: [
       {
         text: '第一轮：哪扇门，你最想推开？',
         options: [
-          { key: 'red',   label: '红色拱门' },
-          { key: 'wood',  label: '旧木门' },
-          { key: 'glass', label: '玻璃门' },
-          { key: 'black', label: '黑铁门' },
+          { key: 'red',    label: '红色拱门' },
+          { key: 'wood',   label: '旧木门' },
+          { key: 'glass',  label: '玻璃门' },
+          { key: 'black',  label: '黑铁门' },
+          { key: 'arch',   label: '石拱门' },
+          { key: 'bamboo', label: '竹帘门' },
         ]
       },
       {
-        text: '第二轮：如果只剩这些门，你会选哪个？',
+        text: '第二轮：直觉选择——你会推哪扇？',
         options: [
-          { key: 'pink',  label: '粉色小门' },
-          { key: 'white', label: '白色极简门' },
-          { key: 'red',   label: '红色拱门' },
-          { key: 'wood',  label: '旧木门' },
+          { key: 'pink',   label: '粉色小门' },
+          { key: 'white',  label: '白色极简门' },
+          { key: 'neon',   label: '霓虹暗门' },
+          { key: 'copper', label: '古铜大门' },
+          { key: 'paper',  label: '日式纸拉门' },
+          { key: 'vine',   label: '藤蔓旧门' },
         ]
       },
       {
-        text: '第三轮：最后的选择——你的直觉是？',
+        text: '第三轮：这是你最后的机会——选吧',
         options: [
-          { key: 'glass', label: '玻璃门' },
-          { key: 'black', label: '黑铁门' },
-          { key: 'pink',  label: '粉色小门' },
-          { key: 'white', label: '白色极简门' },
+          { key: 'wood',   label: '旧木门' },
+          { key: 'glass',  label: '玻璃门' },
+          { key: 'neon',   label: '霓虹暗门' },
+          { key: 'paper',  label: '日式纸拉门' },
+          { key: 'arch',   label: '石拱门' },
+          { key: 'vine',   label: '藤蔓旧门' },
         ]
       },
     ],
     calculate(answers) {
       const cnt = {};
       answers.forEach(a => { if (a) cnt[a] = (cnt[a] || 0) + 1; });
-      // Most chosen door type
+      // Most chosen door type, with weighted last choice
+      if (answers[2]) cnt[answers[2]] = (cnt[answers[2]] || 0) + 0.5;
       const best = Object.keys(cnt).reduce((a, b) => cnt[a] >= cnt[b] ? a : b, 'white');
-      const map = { red:'red', wood:'wood', glass:'glass', black:'black', pink:'pink', white:'white' };
-      return map[best] || 'white';
+      return best || 'white';
     },
     results: {
       red: {
-        title: '你渴望的，比你承认的多',
+        title: '你渴望的，比你愿意承认的多',
         accent: '#cc2200',
-        p: ['你内心有强烈的欲望和驱动力，但你可能不好意思承认自己有多想要某些东西。', '那扇红门背后是激情、是冲动、是你还没有完全释放的能量。', '你不需要压制那股力——它是你最真实的动力。问题不是"我能不能"，是"我允许自己要吗"？'],
-        quote: '渴望不是罪，压制渴望才是。'
+        p: ['你内心藏着强烈的驱动力和欲望，但也许你不太好意思承认自己有多想要某些东西。', '那扇红门后面是激情、是冲动、是你压抑已久还未完全释放的能量。', '这股力不需要被压制——它是你最真实的动力。问题不是"我能不能"，而是"我允许自己要吗"？'],
+        quote: '渴望本身不是罪，把它封存起来才是。'
       },
       wood: {
         title: '你在寻找一个可以停下来的地方',
         accent: '#8b6843',
-        p: ['你疲惫了。你想要的是一扇熟悉的门——一个不需要解释自己、不需要表现的地方。', '旧木门让你想起某种安全感，那是你现在最需要的东西。', '如果现实里还没有这样的地方，先在心里给自己搭一个。'],
-        quote: '家不是一个地点，是一种你不需要表演的状态。'
+        p: ['你疲惫了。你想要的是一扇熟悉的门——一个不必解释自己、不需要表演的地方。', '旧木门让你想起某种久违的安全感，那是你现在最需要的东西。', '如果现实里还没找到那样的地方，先在心里给自己搭一个——你值得拥有那个栖息地。'],
+        quote: '家不是一个地址，是你不需要在乎别人眼光的那种状态。'
       },
       glass: {
-        title: '你比你自己以为的更开放',
+        title: '你比自己以为的更渴望被看见',
         accent: '#4aa8c8',
-        p: ['你好奇世界，想被看见，也愿意去看见。你对改变没有排斥，只是需要一点安全感作为前提。', '玻璃门是透明的——你选择了一种可以看清楚里面再进去的方式，这是理智也是勇气。', '这份开放是你的优势，别因为"想得太多"而失去它。'],
-        quote: '透明不是脆弱，是一种双向的勇气。'
+        p: ['你好奇世界，想被人真正看见，也愿意去看见别人。你对改变并不排斥，只是需要一点安全感作为出发点。', '你选择了透明——可以在进去之前先看清楚，这是理智，也是一种安静的勇气。', '这份开放是你的优势，别让"想太多"堵住了那扇门。'],
+        quote: '透明不是脆弱，是双向的勇气。'
       },
       black: {
-        title: '你内心住着一个还没被自己接受的部分',
+        title: '你内心住着一个还未被自己接受的部分',
         accent: '#2c2c2c',
-        p: ['你被力量、黑暗、未知吸引，这不是坏事——这说明你在跟自己的某个部分正面交锋。', '那扇黑铁门背后可能藏着你还不敢完全承认的欲望、愤怒、或者某种深层的需要。', '不用害怕那个部分，它也是你。认识它，比逃跑要有力量得多。'],
-        quote: '暗不是敌人，是你还没有照过光的地方。'
+        p: ['你被力量感、未知和黑暗所吸引——这不是坏事，这说明你正在和自己某个部分正面交锋。', '那扇黑铁门后面可能藏着你还不敢完全承认的欲望、愤怒，或某种深层的需要。', '不用害怕那个部分，它也是你。认识它，比一直逃跑要有力量得多。'],
+        quote: '黑暗不是敌人，只是你还没有照过光的地方。'
       },
       pink: {
-        title: '你比外表看起来更柔软',
+        title: '你比外表看起来更柔软，也更需要被温柔对待',
         accent: '#c4557c',
-        p: ['那扇低矮的粉色小门，需要弯下腰才能进去——你愿意为爱和温柔低头。', '你心里住着一个还很小的自己，它需要被温柔对待，被接受，被无条件地爱。', '别急着长大，也别怕自己脆弱——脆弱里藏着你最真实的力量。'],
-        quote: '最勇敢的事，是在这个世界里还保持柔软。'
+        p: ['那扇矮小的粉色门需要弯下身才能进去——你愿意为了爱和温柔低头。', '你心里住着一个还很小的自己，它需要被接纳，被无条件地爱，被人看见它的柔软。', '别急着长大，也别把自己的脆弱当成弱点——那份柔软，恰恰是你最真实的力量所在。'],
+        quote: '在这个世界上还能保持柔软，是一种非常稀有的勇气。'
       },
       white: {
-        title: '你准备好重新开始了，但你害怕',
+        title: '你准备好重新开始了，但你有点害怕',
         accent: '#888888',
-        p: ['你选择了那扇没有把手的门。你知道改变必须来，但迈出那一步需要你推自己一把。', '那扇白门背后是未知——可能是新的开始，可能是虚无，你还不确定。', '但门只有推开才知道。犹豫没有答案，只有行动才有。'],
+        p: ['你选了那扇没有把手的门——你知道改变必然要来，但迈出那一步需要你自己推自己一把。', '那扇白门后面是未知：可能是全新的开始，可能是一片虚无，你还不确定。', '但门只有推开才知道后面是什么。犹豫没有答案，只有行动才有。'],
         quote: '有些门没有把手，是因为它需要你用力推。'
+      },
+      arch: {
+        title: '你身上有一种跨越时间的厚重感',
+        accent: '#757575',
+        p: ['那扇石拱门沉默而厚实，像是在等了你很久。你对于历史感、沉淀和积累有一种本能的亲近。', '你不喜欢轻飘飘的东西，你在找的是有重量的东西——有意义的关系，有根基的选择。', '那种厚重感不是负担，是你的地基。站在结实的地方，你能走得更远。'],
+        quote: '石头是被时间雕刻的，有分量的人生也是如此。'
+      },
+      bamboo: {
+        title: '你向往的，是一种减法的人生',
+        accent: '#5a7a3d',
+        p: ['竹帘的轻盈和通透，透露着你对"简单"的渴望——你想要的不是繁华，而是干净。', '你有某种禅意的底色：比起堆积，你更想清减；比起表现，你更想安静地做自己。', '现代生活里这种清净感很难得，你愿意放弃一些"热闹"来换它，这需要智慧，也需要勇气。'],
+        quote: '减法的人生，需要比加法更大的勇气。'
+      },
+      neon: {
+        title: '你有一部分在夜里才敢亮起来',
+        accent: '#FF2D78',
+        p: ['那扇霓虹门属于黑暗中的光——你的某一面，只有在某些特定的时刻或人面前，才会完全亮起来。', '你可能有一面白天不太拿出来的自己：更放肆、更真实、更不在乎规则。', '那个夜里的你也是你，不用压抑它。你不需要永远是白天的那个版本。'],
+        quote: '有些光，只有在黑暗里才看得见它有多亮。'
+      },
+      copper: {
+        title: '你需要的，是值得信赖的分量',
+        accent: '#B87333',
+        p: ['古铜大门厚重、庄严，上面有时间留下的痕迹——你在找有质感的东西，不管是关系还是选择。', '你不轻易相信，但一旦信了就会付出全力。你对浮夸的东西有天然的排斥，更喜欢真实有价值的内核。', '这种眼力和执着是一种难得的品质，但记得，不是所有厚重的东西都值得你全部投入。'],
+        quote: '铜锈不是衰败，是经历了什么的证明。'
+      },
+      paper: {
+        title: '你渴望一种通透又保有边界的关系',
+        accent: '#8B7355',
+        p: ['日式纸拉门透光但不透人——你想被理解，但你也需要隐私和边界。', '你对关系有自己的节奏：亲密但不失距离，温柔但不过度暴露。', '这种分寸感是一种成熟的美，不是冷漠。你只是知道，真正好的关系不需要把自己全都打开。'],
+        quote: '最好的关系，是透着光但各自保持完整的两扇门。'
+      },
+      vine: {
+        title: '你被遗忘的部分，正在等你回去',
+        accent: '#5A8A3A',
+        p: ['那扇被藤蔓覆盖的旧门，美丽又荒废——它让你想起某些你曾经有过、但不知何时放下的东西。', '也许是某种热情，某种梦想，某个你曾经喜欢过的自己。', '那些东西没有消失，只是在等你重新找到它们。生命力没有消失，只是暂时沉默了。'],
+        quote: '被遗忘的地方，往往长出最茂盛的东西。'
       },
     }
   },
@@ -505,53 +607,53 @@ const QUIZZES = [
     iconHref: '#icon-chart',
     questions: [
       {
-        text: '你的外卖比预计晚了一个小时，你会？',
-        options: ['A. 完全没问题，习惯了', 'B. 有点烦但忍了', 'C. 发了差评', 'D. 开始想今天哪里不对劲'],
+        text: '外卖比预计晚了一个小时，你会？',
+        options: ['完全没问题，等着就行', '有点不爽但忍下来了', '发了差评，该说说', '开始觉得今天哪里都不对劲'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '工作群突然@你说一件你以为早解决的事，你的反应是？',
-        options: ['A. 淡定回复，没什么大不了', 'B. 叹口气，处理', 'C. 心跳加速', 'D. 直接摆烂一下'],
+        text: '工作群突然@你，说一件你以为早就解决的事，你的反应是？',
+        options: ['淡定回复，处理就好', '叹口气，好吧处理', '心跳瞬间快了一拍', '想直接摆烂，不想动'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '你期待很久的计划被临时取消，你会？',
-        options: ['A. 好的没事，改天再约', 'B. 有点失落但调整过来', 'C. 情绪低落一整天', 'D. 开始对所有事失去期待'],
+        text: '期待很久的计划被临时取消，你会？',
+        options: ['好的没事，改天再约', '有点失落，但调整过来了', '情绪低落了一整天', '对所有事的期待都消失了一截'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '你昨晚没睡好，今天还有一堆事要做，你最可能？',
-        options: ['A. 照常运转，没有影响', 'B. 咖啡续命，勉强撑着', 'C. 效率减半但硬撑', 'D. 开始觉得活着好累'],
+        text: '昨晚没睡好，今天还有一堆事要做，你最可能？',
+        options: ['照常运转，基本没影响', '咖啡续命，勉强撑着', '效率大打折扣但还是硬撑', '脑子里突然觉得活着好累'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '有人当众说了你一句你觉得不公平的话，你会？',
-        options: ['A. 当场反驳，说清楚', 'B. 忍住但记住了', 'C. 表情管理失败', 'D. 接下来几天反复想这件事'],
+        text: '有人当众说了你一句不公平的话，你会？',
+        options: ['当场说清楚，不憋着', '忍住了，但记住了', '表情管理失败，没能装住', '接下来好几天反复回想这件事'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '连续高压工作一周后，你通常会？',
-        options: ['A. 照样过周末，没什么感觉', 'B. 睡一觉就好了', 'C. 需要几天才能缓过来', 'D. 整个人像断了线，什么都不想动'],
+        text: '连续高压工作一整周后，你通常是？',
+        options: ['照样过周末，没什么感觉', '睡一觉就恢复了', '需要好几天才能缓过来', '整个人像断了线，什么都不想碰'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '家人或朋友对你说了一句"你最近状态不太对"，你感觉？',
-        options: ['A. 没什么，他们关心我', 'B. 有点意外，想一想确实', 'C. 有点委屈', 'D. 突然很想哭'],
+        text: '家人或朋友说"你最近状态不太对"，你感觉？',
+        options: ['没什么，他们只是在关心我', '有点意外，想一想好像确实', '有点委屈，不想被这么说', '突然就很想哭'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '你正在努力做一件事，突然发现之前做的都白费了，你会？',
-        options: ['A. 重新来过，没问题', 'B. 崩溃五分钟后继续', 'C. 当天再也做不下去', 'D. 开始怀疑一切的意义'],
+        text: '你努力做的一件事，突然发现之前做的全白费了，你会？',
+        options: ['重新来过，没问题的', '崩溃几分钟，然后继续', '当天完全做不下去了', '开始怀疑一切有没有意义'],
         scores: [10, 7, 4, 1]
       },
       {
         text: '最近一个月，你有多少天感觉"今天还不错"？',
-        options: ['A. 大多数天都还不错', 'B. 一半一半吧', 'C. 少数几天', 'D. 几乎没有'],
+        options: ['大多数天都还可以', '一半一半，说不定', '只有少数几天', '几乎没有'],
         scores: [10, 7, 4, 1]
       },
       {
-        text: '你现在给自己的状态打几分（满分10分）？',
-        options: ['A. 8-10分，挺好的', 'B. 6-7分，凑合', 'C. 4-5分，一般般', 'D. 1-3分，比较差'],
+        text: '此刻，你给自己的状态打几分？（满分10分）',
+        options: ['8-10分，挺好的', '6-7分，凑合过', '4-5分，一般般', '1-3分，有点撑不住了'],
         scores: [10, 7, 4, 1]
       },
     ],
@@ -655,43 +757,43 @@ const QUIZZES = [
     timerSeconds: 3,
     questions: [
       {
-        text: '有人对你发火——你第一反应是？',
-        options: ['道歉', '反击', '解释', '消失'],
+        text: '有人冲你发火——你的第一反应是？',
+        options: ['先道歉', '直接反击', '拼命解释', '立刻消失'],
         scores: ['fawn', 'fight', 'fight', 'flight']
       },
       {
-        text: '被人冷落——你最先感受到的是？',
-        options: ['愤怒', '难过', '自我怀疑', '算了'],
+        text: '被人冷落了——你最先感受到的是？',
+        options: ['愤怒', '难过', '自我怀疑', '算了随他'],
         scores: ['fight', 'freeze', 'freeze', 'flight']
       },
       {
-        text: '你搞砸了一件事——你对自己说？',
-        options: ['没事的', '都是我的错', '找找原因', '沉默'],
+        text: '你搞砸了一件事——你对自己说的第一句话是？',
+        options: ['没事的没事的', '全是我的错', '先找找哪里出了问题', '什么都不说，沉默'],
         scores: ['fawn', 'freeze', 'fight', 'freeze']
       },
       {
-        text: '关系中遇到冲突——你本能是？',
-        options: ['说清楚', '忍下来', '冷战', '离开'],
+        text: '关系里出现了冲突——你的本能是？',
+        options: ['说清楚，不能含糊', '忍下来，先过去再说', '沉默，等对方先开口', '直接离开这里'],
         scores: ['fight', 'freeze', 'flight', 'flight']
       },
       {
-        text: '别人比你优秀——你感到？',
-        options: ['羡慕', '嫉妒', '努力', '无所谓（但其实有）'],
+        text: '看到某人明显比你优秀——你感到？',
+        options: ['真心羡慕，想靠近', '有点嫉妒，不舒服', '变得更想努力', '无所谓（但心里其实有点什么）'],
         scores: ['freeze', 'fight', 'fight', 'flight']
       },
       {
-        text: '很久没人联系你——你会？',
-        options: ['主动联系', '等待', '觉得被遗弃', '告诉自己不在乎'],
+        text: '很久都没人主动联系你——你会？',
+        options: ['先主动发一条消息', '等着，也许他们很忙', '开始觉得自己被遗忘了', '告诉自己没关系'],
         scores: ['fight', 'freeze', 'freeze', 'flight']
       },
       {
-        text: '面对不确定的未来——你本能是？',
-        options: ['计划', '担心', '顺其自然', '不去想'],
+        text: '面对完全不确定的未来——你的本能是？',
+        options: ['马上开始做计划', '开始担心各种可能', '就顺其自然吧', '把它推到脑子的角落，不去想'],
         scores: ['fight', 'freeze', 'fawn', 'flight']
       },
       {
-        text: '有人说"我们谈谈"——你第一感觉是？',
-        options: ['好啊', '我做错了什么', '紧张', '想逃跑'],
+        text: '有人发消息说「我们谈谈」——你第一秒的感觉是？',
+        options: ['好啊，谈什么？', '我做错什么了吗', '莫名地紧张', '想找借口不谈'],
         scores: ['fight', 'fawn', 'freeze', 'flight']
       },
     ],
@@ -741,45 +843,45 @@ const QUIZZES = [
     iconHref: '#icon-sound',
     questions: [
       {
-        text: '你刚发出一条消息，对方迟迟没有回。脑子里的声音像哪个？',
+        text: '先试听四种声音，再选：\n你刚发了一条消息，对方一直没回。脑子里的声音像哪个？',
         soundKey: 'echoWhisper',
         soundLabel: '回声低语',
-        options: ['A. 回声低语', 'B. 尖锐提示音', 'C. 平静持续音', 'D. 断断续续杂音'],
+        options: ['回声低语（低沉回响）', '尖锐提示音（警觉紧绷）', '平静持续音（平和观察）', '断断续续杂音（混乱焦虑）'],
         scores: ['critic', 'worrier', 'observer', 'worrier']
       },
       {
-        text: '你独自一人在家，突然感到莫名难过。内心的声音是？',
+        text: '你一个人在家，突然莫名难过。内心那个声音像哪个？',
         soundKey: 'calmSteady',
         soundLabel: '平静持续音',
-        options: ['A. 回声低语', 'B. 尖锐提示音', 'C. 平静持续音', 'D. 断断续续杂音'],
+        options: ['回声低语（低沉回响）', '尖锐提示音（警觉紧绷）', '平静持续音（平和观察）', '断断续续杂音（混乱焦虑）'],
         scores: ['critic', 'worrier', 'observer', 'worrier']
       },
       {
-        text: '你刚完成了一件事，回头看自己的表现。内心在说什么？',
+        text: '你刚做完一件事，回头审视自己的表现。内心在说什么？',
         soundKey: 'sharpAlert',
         soundLabel: '尖锐提示音',
-        options: ['A. 回声低语', 'B. 尖锐提示音', 'C. 平静持续音', 'D. 断断续续杂音'],
+        options: ['回声低语（低沉批判自己）', '尖锐提示音（指出所有不足）', '平静持续音（还行，下次做好）', '断断续续杂音（又懊悔又不想面对）'],
         scores: ['critic', 'critic', 'encourager', 'worrier']
       },
       {
-        text: '你想开口说一件事，但最终没说。内心的声音是？',
+        text: '有一句话想说，但最终憋回去了。那一刻内心的声音是？',
         soundKey: 'staticNoise',
         soundLabel: '断断续续杂音',
-        options: ['A. 回声低语', 'B. 尖锐提示音', 'C. 平静持续音', 'D. 断断续续杂音'],
+        options: ['回声低语（说了也没用）', '尖锐提示音（不能说，会出事）', '平静持续音（时候不对，等等再说）', '断断续续杂音（说还是不说，说还是不说……）'],
         scores: ['critic', 'worrier', 'observer', 'worrier']
       },
       {
-        text: '你看到别人过得很好，想到自己。内心的声音像？',
+        text: '看到某人活得比你好，想到自己。那个内心的声音像哪个？',
         soundKey: 'echoWhisper',
         soundLabel: '回声低语',
-        options: ['A. 回声低语', 'B. 尖锐提示音', 'C. 平静持续音', 'D. 断断续续杂音'],
+        options: ['回声低语（为什么是他不是我）', '尖锐提示音（你还差得远）', '平静持续音（挺好的，说明可以做到）', '断断续续杂音（羡慕又自责，乱成一锅）'],
         scores: ['critic', 'worrier', 'encourager', 'worrier']
       },
       {
-        text: '你睡前躺着，大脑开始活动。那个声音是？',
+        text: '睡前躺着，脑子开始自动播放。那个声音像哪个？',
         soundKey: 'staticNoise',
         soundLabel: '断断续续杂音',
-        options: ['A. 回声低语', 'B. 尖锐提示音', 'C. 平静持续音', 'D. 断断续续杂音'],
+        options: ['回声低语（反复回放今天的某个细节）', '尖锐提示音（提醒你明天还有一大堆事）', '平静持续音（平静回顾，差不多睡着了）', '断断续续杂音（什么都想一遍，什么都没想完）'],
         scores: ['critic', 'worrier', 'observer', 'worrier']
       },
     ],
@@ -1030,6 +1132,10 @@ function renderQuestion() {
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-label').textContent = `${qIndex + 1}/${totalQ}`;
 
+  // Quiz title
+  const titleBar = document.getElementById('quiz-title-bar');
+  if (titleBar) titleBar.textContent = `测试 ${quiz.num} · ${quiz.title}`;
+
   // For slider type, show all at once
   if (quiz.type === 'slider') {
     renderSlider(quiz);
@@ -1198,6 +1304,181 @@ const DOOR_SVGS = {
     <!-- no handle -->
     <text x="60" y="110" text-anchor="middle" font-size="9" fill="#c0c0cc">推</text>
     <text x="60" y="122" text-anchor="middle" font-size="7" fill="#d0d0dc">无把手</text>
+  </svg>`,
+
+  // 石拱门 - 厚重、历史感
+  arch: `<svg class="door-svg" viewBox="0 0 120 140" fill="none">
+    <!-- stone frame -->
+    <rect x="3" y="50" width="114" height="90" rx="2" fill="#9E9E9E"/>
+    <!-- arch opening -->
+    <path d="M20 140 L20 80 Q20 45 60 45 Q100 45 100 80 L100 140 Z" fill="#B0BEC5"/>
+    <!-- stone blocks -->
+    <rect x="3" y="55" width="17" height="15" fill="#8D8D8D" stroke="#757575" stroke-width="0.5"/>
+    <rect x="3" y="72" width="17" height="18" fill="#7E7E7E" stroke="#757575" stroke-width="0.5"/>
+    <rect x="3" y="92" width="17" height="18" fill="#8D8D8D" stroke="#757575" stroke-width="0.5"/>
+    <rect x="3" y="112" width="17" height="28" fill="#7E7E7E" stroke="#757575" stroke-width="0.5"/>
+    <rect x="100" y="55" width="17" height="15" fill="#8D8D8D" stroke="#757575" stroke-width="0.5"/>
+    <rect x="100" y="72" width="17" height="18" fill="#7E7E7E" stroke="#757575" stroke-width="0.5"/>
+    <rect x="100" y="92" width="17" height="18" fill="#8D8D8D" stroke="#757575" stroke-width="0.5"/>
+    <rect x="100" y="112" width="17" height="28" fill="#7E7E7E" stroke="#757575" stroke-width="0.5"/>
+    <!-- keystone -->
+    <polygon points="50,45 70,45 65,55 55,55" fill="#757575"/>
+    <!-- door inside arch -->
+    <path d="M25 140 L25 82 Q25 52 60 52 Q95 52 95 82 L95 140 Z" fill="#5D4037"/>
+    <!-- door panel -->
+    <path d="M33 140 L33 85 Q33 63 60 63 Q87 63 87 85 L87 140 Z" fill="#6D4C41"/>
+    <!-- handle -->
+    <circle cx="50" cy="108" r="3.5" fill="#D4A017"/>
+    <!-- ancient symbol -->
+    <circle cx="60" cy="78" r="6" fill="none" stroke="#A0785A" stroke-width="1.5"/>
+    <line x1="60" y1="72" x2="60" y2="84" stroke="#A0785A" stroke-width="1"/>
+    <line x1="54" y1="78" x2="66" y2="78" stroke="#A0785A" stroke-width="1"/>
+  </svg>`,
+
+  // 竹帘门 - 自然、禅意
+  bamboo: `<svg class="door-svg" viewBox="0 0 120 140" fill="none">
+    <!-- frame -->
+    <rect x="5" y="8" width="110" height="128" rx="4" fill="#4E6B3A"/>
+    <rect x="12" y="15" width="96" height="114" rx="3" fill="#6B8F52"/>
+    <!-- bamboo strips -->
+    <rect x="12" y="15" width="8" height="114" fill="#8BA868" opacity="0.8"/>
+    <rect x="22" y="15" width="8" height="114" fill="#7A9A5A" opacity="0.9"/>
+    <rect x="32" y="15" width="8" height="114" fill="#8BA868" opacity="0.8"/>
+    <rect x="42" y="15" width="8" height="114" fill="#7A9A5A" opacity="0.9"/>
+    <rect x="52" y="15" width="8" height="114" fill="#8BA868" opacity="0.8"/>
+    <rect x="62" y="15" width="8" height="114" fill="#7A9A5A" opacity="0.9"/>
+    <rect x="72" y="15" width="8" height="114" fill="#8BA868" opacity="0.8"/>
+    <rect x="82" y="15" width="8" height="114" fill="#7A9A5A" opacity="0.9"/>
+    <rect x="92" y="15" width="8" height="114" fill="#8BA868" opacity="0.8"/>
+    <rect x="102" y="15" width="6" height="114" fill="#7A9A5A" opacity="0.9"/>
+    <!-- horizontal knots -->
+    <rect x="12" y="40" width="96" height="3" fill="rgba(60,40,10,0.3)" rx="1"/>
+    <rect x="12" y="72" width="96" height="3" fill="rgba(60,40,10,0.3)" rx="1"/>
+    <rect x="12" y="104" width="96" height="3" fill="rgba(60,40,10,0.3)" rx="1"/>
+    <!-- rope tie top -->
+    <rect x="5" y="8" width="110" height="10" rx="4" fill="#3E5A2A"/>
+    <rect x="35" y="4" width="16" height="6" rx="3" fill="#2E4A1A"/>
+    <rect x="69" y="4" width="16" height="6" rx="3" fill="#2E4A1A"/>
+    <!-- small zen circle -->
+    <circle cx="60" cy="72" r="8" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+  </svg>`,
+
+  // 霓虹门 - 夜店感，冲突刺激
+  neon: `<svg class="door-svg" viewBox="0 0 120 140" fill="none">
+    <!-- dark body -->
+    <rect x="5" y="8" width="110" height="128" rx="4" fill="#0D0D1A"/>
+    <rect x="12" y="15" width="96" height="114" rx="2" fill="#111120"/>
+    <!-- neon border glow -->
+    <rect x="5" y="8" width="110" height="128" rx="4" fill="none" stroke="#FF2D78" stroke-width="2" opacity="0.9"/>
+    <rect x="5" y="8" width="110" height="128" rx="4" fill="none" stroke="#FF2D78" stroke-width="5" opacity="0.25"/>
+    <!-- neon cross lines -->
+    <line x1="12" y1="72" x2="108" y2="72" stroke="#00F5FF" stroke-width="1.5" opacity="0.8"/>
+    <line x1="60" y1="15" x2="60" y2="129" stroke="#00F5FF" stroke-width="1.5" opacity="0.8"/>
+    <!-- corner lights -->
+    <circle cx="20" cy="30" r="3" fill="#FF2D78" opacity="0.9"/>
+    <circle cx="100" cy="30" r="3" fill="#FF2D78" opacity="0.9"/>
+    <circle cx="20" cy="120" r="3" fill="#00F5FF" opacity="0.9"/>
+    <circle cx="100" cy="120" r="3" fill="#00F5FF" opacity="0.9"/>
+    <!-- handle -->
+    <rect x="54" y="66" width="12" height="4" rx="2" fill="#FF2D78" opacity="0.8"/>
+    <!-- text -->
+    <text x="60" y="55" text-anchor="middle" font-size="8" fill="#FF2D78" opacity="0.7">OPEN</text>
+    <!-- bottom glow strip -->
+    <rect x="12" y="120" width="96" height="6" rx="3" fill="#00F5FF" opacity="0.15"/>
+    <rect x="12" y="120" width="96" height="2" rx="1" fill="#00F5FF" opacity="0.5"/>
+  </svg>`,
+
+  // 古铜门 - 庄重、岁月感
+  copper: `<svg class="door-svg" viewBox="0 0 120 140" fill="none">
+    <!-- frame -->
+    <rect x="4" y="8" width="112" height="128" rx="3" fill="#7B4F2E"/>
+    <rect x="10" y="14" width="100" height="116" rx="2" fill="#8B5E3C"/>
+    <!-- patina overlay -->
+    <rect x="10" y="14" width="100" height="116" rx="2" fill="#3D7A62" opacity="0.3"/>
+    <!-- left panel -->
+    <rect x="14" y="20" width="42" height="52" rx="2" fill="#7A4E2A" stroke="#5A3A1A" stroke-width="1"/>
+    <rect x="14" y="20" width="42" height="52" rx="2" fill="#4A7A60" opacity="0.2"/>
+    <!-- right panel -->
+    <rect x="64" y="20" width="42" height="52" rx="2" fill="#7A4E2A" stroke="#5A3A1A" stroke-width="1"/>
+    <rect x="64" y="20" width="42" height="52" rx="2" fill="#4A7A60" opacity="0.2"/>
+    <!-- bottom panel -->
+    <rect x="14" y="82" width="92" height="42" rx="2" fill="#7A4E2A" stroke="#5A3A1A" stroke-width="1"/>
+    <rect x="14" y="82" width="92" height="42" rx="2" fill="#4A7A60" opacity="0.2"/>
+    <!-- door handles - ring style -->
+    <circle cx="40" cy="50" r="7" fill="none" stroke="#B87333" stroke-width="2.5"/>
+    <circle cx="40" cy="50" r="3" fill="#B87333" opacity="0.7"/>
+    <circle cx="80" cy="50" r="7" fill="none" stroke="#B87333" stroke-width="2.5"/>
+    <circle cx="80" cy="50" r="3" fill="#B87333" opacity="0.7"/>
+    <!-- center divide -->
+    <line x1="60" y1="14" x2="60" y2="130" stroke="#5A3A1A" stroke-width="1.5"/>
+    <!-- decorative nails -->
+    <circle cx="17" cy="23" r="2" fill="#B87333"/>
+    <circle cx="53" cy="23" r="2" fill="#B87333"/>
+    <circle cx="67" cy="23" r="2" fill="#B87333"/>
+    <circle cx="103" cy="23" r="2" fill="#B87333"/>
+    <circle cx="17" cy="69" r="2" fill="#B87333"/>
+    <circle cx="53" cy="69" r="2" fill="#B87333"/>
+    <circle cx="67" cy="69" r="2" fill="#B87333"/>
+    <circle cx="103" cy="69" r="2" fill="#B87333"/>
+  </svg>`,
+
+  // 纸拉门 - 日式，通透轻盈
+  paper: `<svg class="door-svg" viewBox="0 0 120 140" fill="none">
+    <!-- outer frame dark wood -->
+    <rect x="4" y="6" width="112" height="132" rx="3" fill="#4A3728"/>
+    <!-- inner paper surface -->
+    <rect x="12" y="14" width="96" height="120" rx="1" fill="#F5F0E8"/>
+    <!-- paper texture lines vertical -->
+    <line x1="60" y1="14" x2="60" y2="134" stroke="rgba(180,160,120,0.25)" stroke-width="1"/>
+    <!-- horizontal grid -->
+    <line x1="12" y1="50" x2="108" y2="50" stroke="rgba(120,90,60,0.2)" stroke-width="0.8"/>
+    <line x1="12" y1="90" x2="108" y2="90" stroke="rgba(120,90,60,0.2)" stroke-width="0.8"/>
+    <line x1="12" y1="120" x2="108" y2="120" stroke="rgba(120,90,60,0.2)" stroke-width="0.8"/>
+    <!-- vertical grid -->
+    <line x1="36" y1="14" x2="36" y2="134" stroke="rgba(120,90,60,0.2)" stroke-width="0.8"/>
+    <line x1="84" y1="14" x2="84" y2="134" stroke="rgba(120,90,60,0.2)" stroke-width="0.8"/>
+    <!-- subtle shadow to show translucency -->
+    <rect x="12" y="14" width="96" height="120" rx="1" fill="rgba(200,180,140,0.08)"/>
+    <!-- light shining through -->
+    <ellipse cx="45" cy="55" rx="14" ry="20" fill="rgba(255,250,220,0.35)"/>
+    <ellipse cx="80" cy="100" rx="10" ry="14" fill="rgba(255,250,220,0.25)"/>
+    <!-- handle small bar -->
+    <rect x="56" y="72" width="8" height="2" rx="1" fill="#4A3728" opacity="0.5"/>
+    <!-- frame joints -->
+    <rect x="4" y="6" width="8" height="8" rx="1" fill="#3A2A1A"/>
+    <rect x="108" y="6" width="8" height="8" rx="1" fill="#3A2A1A"/>
+    <rect x="4" y="130" width="8" height="8" rx="1" fill="#3A2A1A"/>
+    <rect x="108" y="130" width="8" height="8" rx="1" fill="#3A2A1A"/>
+  </svg>`,
+
+  // 藤蔓门 - 被遗忘的、生命力
+  vine: `<svg class="door-svg" viewBox="0 0 120 140" fill="none">
+    <!-- old faded door -->
+    <rect x="8" y="10" width="104" height="126" rx="3" fill="#7A6A5A"/>
+    <rect x="14" y="16" width="92" height="114" rx="2" fill="#8A7A6A"/>
+    <!-- weathering -->
+    <rect x="14" y="16" width="92" height="114" rx="2" fill="url(#fade)" opacity="0.3"/>
+    <!-- door panels faded -->
+    <rect x="20" y="24" width="36" height="48" rx="2" fill="rgba(0,0,0,0.1)" stroke="#6A5A4A" stroke-width="1"/>
+    <rect x="64" y="24" width="36" height="48" rx="2" fill="rgba(0,0,0,0.1)" stroke="#6A5A4A" stroke-width="1"/>
+    <!-- handle rusted -->
+    <circle cx="90" cy="76" r="4" fill="#8B6343" stroke="#6A4A2A" stroke-width="1"/>
+    <!-- vines growing -->
+    <path d="M8 140 Q15 110 20 80 Q25 50 30 30" stroke="#4A7A2A" stroke-width="2" fill="none"/>
+    <path d="M8 140 Q18 115 28 90 Q35 70 40 55" stroke="#5A8A3A" stroke-width="1.5" fill="none"/>
+    <path d="M112 130 Q105 105 98 80 Q92 58 88 40" stroke="#4A7A2A" stroke-width="2" fill="none"/>
+    <!-- leaves -->
+    <ellipse cx="30" cy="35" rx="7" ry="5" fill="#5A9A3A" transform="rotate(-30 30 35)"/>
+    <ellipse cx="22" cy="65" rx="6" ry="4" fill="#4A8A2A" transform="rotate(20 22 65)"/>
+    <ellipse cx="32" cy="95" rx="6" ry="4" fill="#5A9A3A" transform="rotate(-15 32 95)"/>
+    <ellipse cx="18" cy="110" rx="7" ry="4" fill="#4A8A2A" transform="rotate(35 18 110)"/>
+    <ellipse cx="92" cy="50" rx="6" ry="4" fill="#5A9A3A" transform="rotate(20 92 50)"/>
+    <ellipse cx="100" cy="78" rx="6" ry="4" fill="#4A8A2A" transform="rotate(-25 100 78)"/>
+    <ellipse cx="95" cy="105" rx="7" ry="4" fill="#5A9A3A" transform="rotate(15 95 105)"/>
+    <!-- small flowers -->
+    <circle cx="38" cy="48" r="3" fill="#FFB6C1"/>
+    <circle cx="87" cy="62" r="3" fill="#FFB6C1"/>
+    <circle cx="25" cy="78" r="2.5" fill="#FFFACD"/>
   </svg>`,
 };
 
@@ -1510,7 +1791,7 @@ function showResultPage() {
 function shareResult() {
   if (!state.lastResult) return;
   const { quiz, result } = state.lastResult;
-  const text = `我在「玩心理」测出来是：\n${result.title}\n\n${result.quote}\n\n你也来测测？`;
+  const text = `我在「画心PSY」测出来是：\n${result.title}\n\n${result.quote}\n\n你也来测测？`;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => showToast('已复制到剪贴板'));
   } else {
@@ -1543,7 +1824,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('btn-start-quiz').addEventListener('click', startQuiz);
 
+  document.getElementById('btn-intro-home').addEventListener('click', () => {
+    showPage('page-home');
+  });
+
   document.getElementById('btn-quiz-back').addEventListener('click', () => {
+    clearTimerInterval();
+    showPage('page-home');
+  });
+
+  document.getElementById('btn-quiz-home').addEventListener('click', () => {
     clearTimerInterval();
     showPage('page-home');
   });

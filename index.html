@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>玩心理 · PsyPlay</title>
+  <title>画心PSY · 测测你的内在画像</title>
   <link rel="stylesheet" href="style.css" />
 
   <!-- SVG icon sprite -->
@@ -66,9 +66,9 @@
       <div class="logo-mark">
         <svg><use href="#icon-brain"/></svg>
       </div>
-      <span class="logo-text">玩心理</span>
+      <span class="logo-text">画心PSY</span>
     </div>
-    <p class="site-slogan">认识你自己的那个你</p>
+    <p class="site-slogan">测测你的内在画像</p>
   </header>
 
   <div class="quiz-grid" id="quiz-grid">
@@ -76,7 +76,7 @@
   </div>
 
   <footer class="site-footer">
-    <p>纯前端 · 测完即走 · 不存储任何数据</p>
+    <p>画心PSY · 认识你的内在自己</p>
   </footer>
 </section>
 
@@ -98,24 +98,34 @@
         <span id="intro-duration-text"></span>
       </span>
     </div>
-    <button class="btn-primary" id="btn-start-quiz">
-      开始测试
-      <svg><use href="#icon-arrow-right"/></svg>
-    </button>
+    <div class="intro-actions">
+      <button class="btn-secondary-sm" id="btn-intro-home">
+        <svg><use href="#icon-home"/></svg>
+        返回首页
+      </button>
+      <button class="btn-primary" id="btn-start-quiz">
+        开始测试
+        <svg><use href="#icon-arrow-right"/></svg>
+      </button>
+    </div>
   </div>
 </section>
 
 <!-- ══ QUIZ PAGE ══════════════════════════════════════════════════════════════ -->
 <section id="page-quiz" class="page">
   <div class="quiz-topbar">
-    <button class="btn-icon" id="btn-quiz-back" title="返回">
+    <button class="btn-icon" id="btn-quiz-back" title="返回首页">
       <svg><use href="#icon-back"/></svg>
     </button>
     <div class="progress-track">
       <div class="progress-fill" id="progress-fill"></div>
     </div>
     <span class="progress-label" id="progress-label">1/6</span>
+    <button class="btn-icon" id="btn-quiz-home" title="返回首页">
+      <svg><use href="#icon-home"/></svg>
+    </button>
   </div>
+  <div class="quiz-title-bar" id="quiz-title-bar"></div>
 
   <div class="question-wrap">
     <!-- Timer bar (Test 8 only) -->

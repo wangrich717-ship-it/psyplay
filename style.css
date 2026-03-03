@@ -271,6 +271,9 @@ body {
   max-width: 620px;
   margin: 0 auto;
   padding: 0 20px 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 .quiz-topbar {
@@ -343,7 +346,12 @@ body {
 }
 
 .question-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .question-text {
@@ -757,8 +765,6 @@ input[type="range"]::-moz-range-thumb {
 #result-canvas {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: auto;
   margin: 24px auto 0;
   border-radius: 16px;
   background: var(--surface);

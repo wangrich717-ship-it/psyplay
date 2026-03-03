@@ -320,7 +320,7 @@ const QUIZZES = [
         scores: ['B', 'M', 'B', 'S']
       },
       {
-        text: '这一题的声音，是一种非常熟悉的节奏。\n听完之后——你感受到了什么？',
+        text: '听完之后——你感受到了什么？',
         soundKey: 'heartbeat',
         soundLabel: '心跳律动',
         options: ['感到踏实，像在被安抚', '有点紧张，心跳加速', '放松地跟着它呼吸', '觉得它在提醒我什么'],
@@ -1745,10 +1745,15 @@ function showResultPage() {
 
   const result = quiz.results[resultKey] || Object.values(quiz.results)[0];
 
-  // Icon box
+  // Icon box — hidden for Test 1 (color swatch shown instead)
   const iconBox = document.getElementById('result-icon-box');
-  iconBox.style.background = `linear-gradient(135deg, ${result.accent}30, ${result.accent}18)`;
-  iconBox.innerHTML = `<svg width="46" height="46" style="fill:${result.accent}"><use href="${quiz.iconHref}"/></svg>`;
+  if (quiz.id === 'q1') {
+    iconBox.style.display = 'none';
+  } else {
+    iconBox.style.display = '';
+    iconBox.style.background = `linear-gradient(135deg, ${result.accent}30, ${result.accent}18)`;
+    iconBox.innerHTML = `<svg width="46" height="46" style="fill:${result.accent}"><use href="${quiz.iconHref}"/></svg>`;
+  }
 
   // Color swatch (Test 1 only)
   const swatch = document.getElementById('result-color-swatch');
@@ -1777,15 +1782,15 @@ function showResultPage() {
 
   if (quiz.type === 'slider' && radarData) {
     canvas.style.display = 'block';
-    const dpr = window.devicePixelRatio || 1;
-    const cw = canvas.parentElement ? canvas.parentElement.offsetWidth : 360;
-    canvas.style.width = cw + 'px';
     canvas.style.height = '320px';
-    canvas.width = cw * dpr;
-    canvas.height = 320 * dpr;
+    // Measure width inside setTimeout — page is visible by then (showPage called below)
     setTimeout(() => {
+      const dpr = window.devicePixelRatio || 1;
+      const cw = canvas.offsetWidth || 360;
+      canvas.width = cw * dpr;
+      canvas.height = 320 * dpr;
       CanvasManager.drawRadar('result-canvas', radarData.scores, radarData.dims, 6);
-    }, 100);
+    }, 150);
 
     // Per-dimension tips
     dimTips.style.display = 'flex';
@@ -1799,15 +1804,16 @@ function showResultPage() {
 
   if (quiz.type === 'text' && quiz.id === 'q10') {
     canvas.style.display = 'block';
-    const dpr2 = window.devicePixelRatio || 1;
-    const cw2 = canvas.parentElement ? canvas.parentElement.offsetWidth : 360;
-    canvas.style.width = cw2 + 'px';
-    canvas.style.height = cw2 + 'px'; // square for relationship map
-    canvas.width = cw2 * dpr2;
-    canvas.height = cw2 * dpr2;
+    // Fixed map size; measure DPR after showPage makes the page visible
+    const mapSize = 360;
+    canvas.style.width = mapSize + 'px';
+    canvas.style.height = mapSize + 'px';
     setTimeout(() => {
+      const dpr2 = window.devicePixelRatio || 1;
+      canvas.width = mapSize * dpr2;
+      canvas.height = mapSize * dpr2;
       CanvasManager.drawRelationshipMap('result-canvas', resultKey);
-    }, 100);
+    }, 150);
   }
 
   // Save result for share

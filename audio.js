@@ -111,11 +111,12 @@ const AudioManager = (() => {
   }
 
   // Heartbeat: two-part lub-dub at ~60 BPM, 4 beats
+  // Uses 160Hz / 130Hz — audible on phone speakers (70/55Hz were too low)
   function playHeartbeat() {
     for (let i = 0; i < 4; i++) {
       const t = i * 1.0;
-      playTone({ frequency: 70,  duration: 0.14, type: 'sine', volume: 0.45, delay: t });
-      playTone({ frequency: 55,  duration: 0.12, type: 'sine', volume: 0.35, delay: t + 0.20 });
+      playTone({ frequency: 160, duration: 0.16, type: 'sine', volume: 0.50, delay: t });
+      playTone({ frequency: 130, duration: 0.13, type: 'sine', volume: 0.40, delay: t + 0.22 });
     }
   }
 

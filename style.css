@@ -271,9 +271,12 @@ body {
   max-width: 620px;
   margin: 0 auto;
   padding: 0 20px 60px;
-  display: flex;
   flex-direction: column;
   min-height: 100dvh;
+}
+/* Must be .active so it doesn't override .page { display: none } */
+#page-quiz.active {
+  display: flex;
 }
 
 .quiz-topbar {

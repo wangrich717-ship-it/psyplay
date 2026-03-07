@@ -1536,12 +1536,36 @@ function renderAudioOptions(q, container, quiz) {
       AudioManager.SOUNDS[q.soundKey] && AudioManager.SOUNDS[q.soundKey]();
       setTimeout(() => btn.classList.remove('playing'), 4000);
     }, 300);
+
+    // Text option choices (q3 only)
+    const div = document.createElement('div');
+    div.className = 'options-text';
+    const letters = ['A', 'B', 'C', 'D'];
+    q.options.forEach((opt, i) => {
+      const optBtn = document.createElement('button');
+      optBtn.className = 'text-option';
+      const cleanText = opt.replace(/^[A-D]\.\s*/, '');
+      optBtn.innerHTML = `<span class="option-letter">${letters[i]}</span><span>${cleanText}</span>`;
+      const score = q.scores ? q.scores[i] : i;
+      optBtn.addEventListener('click', () => handleAnswer(score));
+      div.appendChild(optBtn);
+    });
+    container.appendChild(div);
+
   } else {
-    // Test 9: Sound buttons ARE the answer options — click to play & select
+    // Test 9: 4 sound buttons to preview; confirm button to select
     panel.style.display = 'none';
     const soundKeys = ['echoWhisper', 'sharpAlert', 'calmSteady', 'staticNoise'];
-    const div = document.createElement('div');
-    div.className = 'options-sound-answer';
+    let selectedScore = null;
+
+    const grid = document.createElement('div');
+    grid.className = 'options-sound-answer';
+
+    const confirmBtn = document.createElement('button');
+    confirmBtn.className = 'btn-sound-confirm';
+    confirmBtn.textContent = '选择这个声音';
+    confirmBtn.disabled = true;
+
     soundKeys.forEach((key, idx) => {
       const btn = document.createElement('button');
       btn.className = 'sound-answer-opt';
@@ -1550,11 +1574,20 @@ function renderAudioOptions(q, container, quiz) {
       btn.addEventListener('click', () => {
         AudioManager.stopAll();
         AudioManager.SOUNDS[key] && AudioManager.SOUNDS[key]();
-        handleAnswer(score);
+        grid.querySelectorAll('.sound-answer-opt').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedScore = score;
+        confirmBtn.disabled = false;
       });
-      div.appendChild(btn);
+      grid.appendChild(btn);
     });
-    container.appendChild(div);
+
+    confirmBtn.addEventListener('click', () => {
+      if (selectedScore !== null) handleAnswer(selectedScore);
+    });
+
+    container.appendChild(grid);
+    container.appendChild(confirmBtn);
   }
 }
 

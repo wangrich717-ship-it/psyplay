@@ -592,8 +592,30 @@ body {
   background: var(--purple-bg);
   transform: scale(1.03);
 }
+.sound-answer-opt.selected {
+  border-color: var(--purple);
+  background: var(--purple-bg);
+  transform: scale(1.03);
+}
 .sound-answer-opt svg { fill: var(--purple); width: 36px; height: 36px; opacity: 0.75; }
-.sound-answer-opt:hover svg { opacity: 1; }
+.sound-answer-opt:hover svg, .sound-answer-opt.selected svg { opacity: 1; }
+
+.btn-sound-confirm {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: var(--radius-btn);
+  border: none;
+  background: linear-gradient(135deg, var(--orange), #F0C040);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.btn-sound-confirm:disabled { opacity: 0.35; cursor: default; transform: none; }
+.btn-sound-confirm:not(:disabled):hover { opacity: 0.9; transform: translateY(-1px); }
 
 /* Slider options (Test 7) */
 .options-slider {

@@ -761,14 +761,14 @@ const QUIZZES = [
   {
     id: 'q8',
     num: '08',
-    title: '五秒决定——你的本能防御机制',
-    tagline: '不要想，五秒内点击——你的本能是最诚实的',
+    title: '十秒决定——你的本能防御机制',
+    tagline: '不要想，十秒内点击——你的本能是最诚实的',
     type: 'timed',
     typeLabel: '限时选择',
     duration: '约1.5分钟',
     cardClass: 'card-8',
     iconHref: '#icon-clock',
-    timerSeconds: 5,
+    timerSeconds: 10,
     questions: [
       {
         text: '有人冲你发火——你的第一反应是？',
@@ -1537,37 +1537,25 @@ function renderAudioOptions(q, container, quiz) {
       setTimeout(() => btn.classList.remove('playing'), 4000);
     }, 300);
   } else {
-    // Test 9: 4 numbered sound buttons (no labels shown)
+    // Test 9: Sound buttons ARE the answer options — click to play & select
+    panel.style.display = 'none';
     const soundKeys = ['echoWhisper', 'sharpAlert', 'calmSteady', 'staticNoise'];
+    const div = document.createElement('div');
+    div.className = 'options-sound-answer';
     soundKeys.forEach((key, idx) => {
       const btn = document.createElement('button');
-      btn.className = 'sound-btn';
-      btn.innerHTML = `<svg width="14" height="14"><use href="#icon-play"/></svg> 声音 ${idx + 1}`;
+      btn.className = 'sound-answer-opt';
+      btn.innerHTML = `<svg width="36" height="36"><use href="#icon-play"/></svg>`;
+      const score = q.scores ? q.scores[idx] : idx;
       btn.addEventListener('click', () => {
         AudioManager.stopAll();
-        soundsContainer.querySelectorAll('.sound-btn').forEach(b => b.classList.remove('playing'));
-        btn.classList.add('playing');
-        setTimeout(() => btn.classList.remove('playing'), 3200);
         AudioManager.SOUNDS[key] && AudioManager.SOUNDS[key]();
+        handleAnswer(score);
       });
-      soundsContainer.appendChild(btn);
+      div.appendChild(btn);
     });
+    container.appendChild(div);
   }
-
-  // Text option choices
-  const div = document.createElement('div');
-  div.className = 'options-text';
-  const letters = ['A', 'B', 'C', 'D'];
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'text-option';
-    const cleanText = opt.replace(/^[A-D]\.\s*/, '');
-    btn.innerHTML = `<span class="option-letter">${letters[i]}</span><span>${cleanText}</span>`;
-    const score = q.scores ? q.scores[i] : i;
-    btn.addEventListener('click', () => handleAnswer(score));
-    div.appendChild(btn);
-  });
-  container.appendChild(div);
 }
 
 // ── Timed options (Test 8) ───────────────────────────────────────────────────
@@ -1646,7 +1634,7 @@ function renderSlider(quiz) {
     valSpan.textContent = valueLabels[1];
 
     wrap.innerHTML = `
-      <div class="slider-question">${item.dim}：${item.text}</div>
+      <div class="slider-question">${item.text}</div>
       <div class="slider-row">
         <span class="slider-label-left">${valueLabels[0]}</span>
         <input type="range" min="0" max="3" value="1" step="1" data-idx="${i}">
@@ -1782,13 +1770,14 @@ function showResultPage() {
 
   if (quiz.type === 'slider' && radarData) {
     canvas.style.display = 'block';
-    canvas.style.height = '320px';
     // Measure width inside setTimeout — page is visible by then (showPage called below)
     setTimeout(() => {
       const dpr = window.devicePixelRatio || 1;
       const cw = canvas.offsetWidth || 360;
+      const ch = Math.min(cw, 400); // proportional height, capped at 400px
+      canvas.style.height = ch + 'px';
       canvas.width = cw * dpr;
-      canvas.height = 320 * dpr;
+      canvas.height = ch * dpr;
       CanvasManager.drawRadar('result-canvas', radarData.scores, radarData.dims, 6);
     }, 150);
 
@@ -1804,14 +1793,13 @@ function showResultPage() {
 
   if (quiz.type === 'text' && quiz.id === 'q10') {
     canvas.style.display = 'block';
-    // Fixed map size; measure DPR after showPage makes the page visible
-    const mapSize = 360;
-    canvas.style.width = mapSize + 'px';
-    canvas.style.height = mapSize + 'px';
+    // Width comes from CSS (width:100%); height set dynamically to match (square canvas)
     setTimeout(() => {
       const dpr2 = window.devicePixelRatio || 1;
-      canvas.width = mapSize * dpr2;
-      canvas.height = mapSize * dpr2;
+      const cw = canvas.offsetWidth || 360;
+      canvas.style.height = cw + 'px';
+      canvas.width = cw * dpr2;
+      canvas.height = cw * dpr2;
       CanvasManager.drawRelationshipMap('result-canvas', resultKey);
     }, 150);
   }
@@ -1925,7 +1913,7 @@ const PRINCIPLES = {
   },
   q2: {
     title: '防御机制与依恋风格',
-    body: `<p>弗洛伊德提出"防御机制"的概念，指人在面对焦虑或威胁时，心理系统自动启动的保护策略。Anna Freud 在此基础上系统化了多种防御方式，如压抑、退行、投射等。</p><p>本测试将防御模式拟人化为四种"内心小怪兽"：刺猬（回避/保护型）、章鱼（焦虑依附型）、萤火虫（回避亲密型）、龙（对抗/控制型）。这些模式通常在早期关系经历中形成，并延伸至成年后的人际应对方式中。</p><p>认识自己的"怪兽"不是为了消灭它，而是理解它曾经保护了你，同时看见它在哪些时候可能限制了你。</p>`
+    body: `<p>弗洛伊德提出"防御机制"的概念，指人在面对焦虑或威胁时，心理系统自动启动的保护策略。这些策略在长期使用中，可能塑造我们稳定的关系模式。本测试将这些源于防御、并固化为核心关系应对的模式，拟人化为四种"内心小怪兽"：刺猬（回避/自我保护型）、章鱼（焦虑/过度卷入型）、萤火虫（疏离/回避亲密型）、龙（对抗/控制型）。认识你的"小怪兽"，不是为了消灭它——它曾经是你赖以生存的盔甲。我们的目标，是理解它的来处，并看清在当下，它可能在哪些时候，无意中也限制了你。</p>`
   },
   q3: {
     title: '听觉情绪处理与情感调节',

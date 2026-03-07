@@ -126,13 +126,15 @@ const CanvasManager = (() => {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const W = canvas.width / dpr, H = canvas.height / dpr;
     const cx = W / 2, cy = H / 2;
+    // Scale all distances/radii so the map fits any canvas size
+    const sc = Math.min(W, H) / 420;
 
     ctx.clearRect(0, 0, W, H);
 
     // Concentric circles (rings)
     [45, 95, 145, 192].forEach((r, i) => {
       ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.arc(cx, cy, r * sc, 0, Math.PI * 2);
       ctx.strokeStyle = `rgba(124,58,237,${0.28 - i * 0.05})`;
       ctx.lineWidth = 1.5;
       ctx.stroke();
@@ -140,10 +142,10 @@ const CanvasManager = (() => {
 
     // Self node
     ctx.beginPath();
-    ctx.arc(cx, cy, 22, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 22 * sc, 0, Math.PI * 2);
     ctx.fillStyle = PURPLE;
     ctx.fill();
-    ctx.font = 'bold 13px "PingFang SC", sans-serif';
+    ctx.font = `bold ${Math.round(13 * sc)}px "PingFang SC", sans-serif`;
     ctx.fillStyle = '#fff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -153,8 +155,8 @@ const CanvasManager = (() => {
     const nodes = MAP_CONFIGS[attachmentType] || MAP_CONFIGS.secure;
     nodes.forEach(({ label, r, a }) => {
       const rad = (a * Math.PI) / 180;
-      const nx = cx + r * Math.cos(rad);
-      const ny = cy + r * Math.sin(rad);
+      const nx = cx + r * sc * Math.cos(rad);
+      const ny = cy + r * sc * Math.sin(rad);
 
       // Connecting line
       ctx.beginPath();
@@ -166,14 +168,14 @@ const CanvasManager = (() => {
 
       // Node
       ctx.beginPath();
-      ctx.arc(nx, ny, 20, 0, Math.PI * 2);
+      ctx.arc(nx, ny, 20 * sc, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(124,58,237,0.12)';
       ctx.fill();
       ctx.strokeStyle = PURPLE;
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
-      ctx.font = '12px "PingFang SC", sans-serif';
+      ctx.font = `${Math.round(12 * sc)}px "PingFang SC", sans-serif`;
       ctx.fillStyle = '#374151';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
